@@ -18,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (Input.is_action_pressed("steer_left") || Input.is_action_pressed("steer_right")):
-		var steering := steer_force * current_speed / max_velocity * delta
+		var steering :float = min(steer_force, steer_force * current_speed / (max_velocity / 2)) * delta
 		steering *= 1 if Input.is_action_pressed(("steer_right")) else -1
 		rotate(steering)
 
