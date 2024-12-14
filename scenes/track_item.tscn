@@ -18,6 +18,7 @@ type = 1
 checkpoint_texture = ExtResource("3_k5pth")
 start_texture = ExtResource("3_cvqwn")
 goal_texture = ExtResource("4_mf4v2")
+invalid_color = Color(0.506789, 0.0367556, 0.0723041, 1)
 
 [node name="Outline" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.890196)

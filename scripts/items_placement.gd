@@ -12,6 +12,9 @@ class_name ItemsPlacement
 func _ready() -> void:
 	init_canva()
 	GameStore.mode_changed.connect(on_mode_change)
+	GameStore.start_validated.connect(set_start_validation)
+	GameStore.goal_validated.connect(set_goal_validation)
+	GameStore.checkpoint_validated.connect(set_checkpoint_validation)
 
 func init_canva():
 	# place start item
@@ -50,3 +53,12 @@ func on_mode_change(mode: Store.GameMode):
 		visible = false
 	elif mode == Store.GameMode.PAINTING:
 		visible = true
+
+func set_start_validation(valid: bool):
+	start_item.set_valid(valid)
+
+func set_goal_validation(valid: bool):
+	goal_item.set_valid(valid)
+
+func set_checkpoint_validation(index: int, valid: bool):
+	checkpoints[index].set_valid(valid)

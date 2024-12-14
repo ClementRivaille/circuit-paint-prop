@@ -10,6 +10,7 @@ class_name TrackItem
 
 @export var min_pos := Vector2(0.0, 0.0)
 @export var max_pos := Vector2(400.0, 224.0)
+@export var invalid_color: Color
 
 @onready var outline: Sprite2D = $Outline
 @onready var fill: Sprite2D = $Fill
@@ -66,3 +67,7 @@ func _on_mouse_exited() -> void:
 	if !dragged:
 		outline.visible = false
 		GameStore.exit_grab_item()
+
+func set_valid(valid: bool):
+	fill.visible = !valid || dragged
+	fill.self_modulate = Color.WHITE if valid else invalid_color
