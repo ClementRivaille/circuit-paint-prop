@@ -10,14 +10,39 @@ class_name Kart
 @onready var camera: Camera2D = $Camera2D
 
 var current_speed := 0.0
+var active := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# camera.make_current()
-	pass
+	deactivate()
+	GameStore.mode_changed.connect(on_change_mode)
+
+func activate():
+	global_position = GameStore.get_global_position(GameStore.start_position)
+	visible = true
+	camera.make_current()
+
+	current_speed = 0.0
+	var goal_position := GameStore.get_global_position(GameStore.goal_position)
+	rotation = global_position.angle_to_point(goal_position)
+
+	active = true
+
+func deactivate():
+	visible = false
+	position = Vector2(-10,-10)
+	active = false
+
+func on_change_mode(mode: Store.GameMode):
+	if mode == Store.GameMode.RACING:
+		activate()
+	elif !active:
+		deactivate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !active: return
+
 	if (Input.is_action_pressed("steer_left") || Input.is_action_pressed("steer_right")):
 		var steering :float = min(steer_force, steer_force * current_speed / (max_velocity / 2)) * delta
 		steering *= 1 if Input.is_action_pressed(("steer_right")) else -1

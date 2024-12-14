@@ -5,8 +5,10 @@ signal painting_change(p: bool)
 signal start_grab
 signal hover_grab
 signal exit_grab
+signal mode_changed(mode: GameMode)
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
+enum GameMode { PAINTING, RACING, RESULTS }
 
 var cursor_position: Vector2:
 	get = get_cursor_position, set = set_cursor_position
@@ -67,5 +69,15 @@ func get_position_on_map(world_pos: Vector2) -> Vector2i:
 	var local_pos := world_pos - tilemap_position
 	return tilemap.local_to_map(local_pos)
 
+func get_global_position(map_pos: Vector2i) -> Vector2:
+	var local_pos := tilemap.map_to_local(map_pos)
+	return local_pos + tilemap_position
+
 func generate_checkpoints(checkpoints_positions: Array[Vector2i]):
 	checkpoints = checkpoints_positions.duplicate()
+
+var current_mode: GameMode =  GameMode.PAINTING
+
+func change_mode(mode: GameMode):
+	current_mode = mode
+	mode_changed.emit(mode)
