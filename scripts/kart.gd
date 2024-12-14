@@ -11,11 +11,13 @@ class_name Kart
 
 var current_speed := 0.0
 var active := false
+var engine_stopped := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	deactivate()
 	GameStore.mode_changed.connect(on_change_mode)
+	GameStore.goal_reached.connect(stop_engines)
 
 func activate():
 	global_position = GameStore.get_global_position(GameStore.start_position)
@@ -26,6 +28,7 @@ func activate():
 	var goal_position := GameStore.get_global_position(GameStore.goal_position)
 	rotation = global_position.angle_to_point(goal_position) + PI/2
 
+	engine_stopped = false
 	active = true
 
 func deactivate():
@@ -48,7 +51,7 @@ func _process(delta: float) -> void:
 		steering *= 1 if Input.is_action_pressed(("steer_right")) else -1
 		rotate(steering)
 
-	if (Input.is_action_pressed("accelerate") || Input.is_action_pressed("brake")):
+	if (Input.is_action_pressed("accelerate") || Input.is_action_pressed("brake")) && !engine_stopped:
 		current_speed += delta * (accel if Input.is_action_pressed("accelerate") else -accel)
 		current_speed = clamp(current_speed, -max_backward_celocity, max_velocity)
 	elif abs(current_speed) > 0:
@@ -69,3 +72,6 @@ func _process(delta: float) -> void:
 func on_collide():
 	var speed_direction := -1 if get_real_velocity().rotated(get_rotation()).y > 0 else 1
 	current_speed = get_real_velocity().length() * speed_direction
+
+func stop_engines():
+	engine_stopped = true

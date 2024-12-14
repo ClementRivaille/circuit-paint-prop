@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=31 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://scripts/cursor_manager.gd" id="3_qabto"]
 [ext_resource type="Script" path="res://scripts/canva.gd" id="3_uhgos"]
 [ext_resource type="Texture2D" uid="uid://c7yrn5dac0q8c" path="res://assets/sprites/cursor/cursor.png" id="4_f6ifv"]
+[ext_resource type="Script" path="res://scripts/track_objects.gd" id="5_it5ss"]
+[ext_resource type="PackedScene" uid="uid://nhqrw5cwbjln" path="res://scenes/goal.tscn" id="6_cketq"]
+[ext_resource type="PackedScene" uid="uid://c5ki80h3tksat" path="res://scenes/checkpoint.tscn" id="6_ggibb"]
 [ext_resource type="Texture2D" uid="uid://cxmhxws27b0tu" path="res://assets/sprites/cursor/paint.png" id="6_s3s6i"]
 [ext_resource type="PackedScene" uid="uid://d0fdctfj4c7e6" path="res://scenes/color_select.tscn" id="7_gy87y"]
 [ext_resource type="Texture2D" uid="uid://c4maxrtwlrcyf" path="res://assets/sprites/cursor/grab.png" id="7_qwu64"]
@@ -23,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
+[ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -40,7 +44,6 @@ anchor_mode = 0
 script = ExtResource("1_f3075")
 
 [node name="Kart" parent="." instance=ExtResource("2_4r1ug")]
-z_index = 1
 position = Vector2(200, 112)
 max_velocity = 45.0
 max_backward_celocity = 15.0
@@ -88,6 +91,12 @@ collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canva/DrawArea"]
 shape = SubResource("RectangleShape2D_2458f")
+
+[node name="TrackObjects" type="Node2D" parent="Canva"]
+script = ExtResource("5_it5ss")
+checkpoint_prefab = ExtResource("6_ggibb")
+
+[node name="Goal" parent="Canva/TrackObjects" instance=ExtResource("6_cketq")]
 
 [node name="CursorManager" type="Sprite2D" parent="."]
 z_index = 2
@@ -230,6 +239,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("22_x074b")
+checkpoint_complete_color = Color(0.40477, 0.90732, 0.376089, 1)
 
 [node name="Controls" type="Label" parent="StaticUI/RacingUI"]
 texture_filter = 1
@@ -240,6 +250,40 @@ offset_top = 4.0
 theme_override_fonts/font = ExtResource("17_kbh25")
 theme_override_font_sizes/font_size = 13
 text = "Esc: back to Edit"
+
+[node name="Checkpoints" type="Control" parent="StaticUI/RacingUI"]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.9
+anchor_right = 1.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 20.0
+grow_horizontal = 0
+
+[node name="Flag" type="TextureRect" parent="StaticUI/RacingUI/Checkpoints"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.249
+anchor_bottom = 1.0
+texture = ExtResource("27_domar")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="StaticUI/RacingUI/Checkpoints"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "0/6"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]

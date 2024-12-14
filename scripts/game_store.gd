@@ -6,9 +6,13 @@ signal start_grab
 signal hover_grab
 signal exit_grab
 signal mode_changed(mode: GameMode)
+signal checkpoint_collected
+signal goal_reached
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS }
+
+var END_DELAY := 2.0
 
 var cursor_position: Vector2:
 	get = get_cursor_position, set = set_cursor_position
@@ -77,7 +81,22 @@ func generate_checkpoints(checkpoints_positions: Array[Vector2i]):
 	checkpoints = checkpoints_positions.duplicate()
 
 var current_mode: GameMode =  GameMode.PAINTING
+var total_checkpoints := 4: set = set_total_checkpoints
+func set_total_checkpoints(total: int): total_checkpoints = total
+var checkpoints_collected := 0
 
 func change_mode(mode: GameMode):
 	current_mode = mode
 	mode_changed.emit(mode)
+
+func collect_checkpoint():
+	checkpoints_collected += 1
+	checkpoint_collected.emit()
+
+func reset_checkpoints():
+	checkpoints_collected = 0
+
+func reach_goal():
+	goal_reached.emit()
+	await get_tree().create_timer(END_DELAY).timeout
+	change_mode(Store.GameMode.PAINTING)

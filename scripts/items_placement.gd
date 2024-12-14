@@ -1,7 +1,6 @@
 extends Node2D
 class_name ItemsPlacement
 
-@export var nb_checkpoints := 4
 @export var cell_size := Vector2(32, 32)
 @export var item_prefab: PackedScene
 
@@ -22,7 +21,7 @@ func init_canva():
 	var grid_pos := Vector2(1,0)
 	# generate checkpoins
 	var checkpoints_pos: Array[Vector2i] = []
-	for idx in range(0, nb_checkpoints):
+	for idx in range(0, GameStore.total_checkpoints):
 		var checkpoint_item: TrackItem = item_prefab.instantiate()
 		checkpoint_item.type = Store.TrackItemType.CHECKPOINT
 		checkpoint_item.index = idx

@@ -5,4 +5,5 @@ class_name SwitchButton
 
 func on_input(event: InputEvent):
 	if event is InputEventMouseButton && event.is_pressed():
+		GameStore.reset_checkpoints()
 		GameStore.change_mode(to_mode)

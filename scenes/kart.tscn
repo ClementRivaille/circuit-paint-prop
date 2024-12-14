@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/kart.gd" id="1_ngqb2"]
 
 [node name="Kart" type="CharacterBody2D"]
+z_index = 2
 motion_mode = 1
 script = ExtResource("1_ngqb2")
 max_velocity = 0.01
