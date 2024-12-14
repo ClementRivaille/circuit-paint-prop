@@ -119,6 +119,14 @@ func are_item_placed() -> bool:
 func is_within_canva(point: Vector2i) -> bool:
 	return abs(point.x) <= CANVA_DIMENSIONS.x / 2.0 && abs(point.y) <= CANVA_DIMENSIONS.y / 2.0
 
+func read_cell_flag(cell: Vector2i, flag: String) -> bool:
+	var cell_data := tilemap.get_cell_tile_data(cell)
+	if (cell_data == null):
+		return false
+	var value = cell_data.get_custom_data(flag)
+	return value if value != null else false
+
+
 ## ---- RACE
 
 var current_mode: GameMode =  GameMode.PAINTING
