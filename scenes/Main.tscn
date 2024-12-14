@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=32 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
+[ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="28_4v086"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -283,6 +284,23 @@ theme_override_fonts/font = ExtResource("17_kbh25")
 theme_override_font_sizes/font_size = 13
 text = "0/6"
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Hero" type="Label" parent="StaticUI/RacingUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.893742, 0.84816, 0.0648201, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("28_4v086")
+theme_override_font_sizes/font_size = 32
+text = "FINISHED!"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
