@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0fdctfj4c7e6"]
+
+[ext_resource type="Script" path="res://scripts/color_select.gd" id="1_l50q5"]
+[ext_resource type="Texture2D" uid="uid://cvtt1higbwrbi" path="res://assets/sprites/ui/color-tile-out.png" id="1_toubo"]
+[ext_resource type="Texture2D" uid="uid://dpmyl17ibiijl" path="res://assets/sprites/ui/color-tile-fill.png" id="2_o0d70"]
+[ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="3_av6oh"]
+[ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="4_r6wov"]
+
+[node name="Color" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+script = ExtResource("1_l50q5")
+
+[node name="Button" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("1_toubo")
+stretch_mode = 3
+
+[node name="Fill" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o0d70")
+stretch_mode = 3
+
+[node name="Icon" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.407843)
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_av6oh")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
+theme_override_fonts/font = ExtResource("4_r6wov")
+theme_override_font_sizes/font_size = 13
+text = "Road"
+
+[connection signal="button_down" from="Button" to="." method="on_click"]

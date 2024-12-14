@@ -11,7 +11,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	width = default.get_width()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var pos := get_viewport().get_mouse_position()
 	set_global_position(pos)
 	GameStore.set_cursor_position(pos)

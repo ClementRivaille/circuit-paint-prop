@@ -5,15 +5,13 @@ class_name PaintingCanva
 @export var canva_width := 200
 @export var canva_height := 200
 
-var selected_tile := Vector2(1,0)
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (GameStore.painting):
 		var local_pos := GameStore.cursor_position - (get_viewport().get_visible_rect().size / 2)
 		var cursor_pos := local_to_map(local_pos)
@@ -49,6 +47,6 @@ func draw_circle_line(center: Vector2i, width: int, y: int):
 	var ypos := center.y + y
 	var xpos := center.x - width
 	while xpos <= center.x + width:
-		if abs(xpos) <= canva_width / 2 && abs(ypos) <= canva_height / 2:
-			set_cell(Vector2i(xpos, ypos), 0, selected_tile)
+		if abs(xpos) <= canva_width / 2.0 && abs(ypos) <= canva_height / 2.0:
+			set_cell(Vector2i(xpos, ypos), 0, GameStore.selected_color)
 		xpos += 1

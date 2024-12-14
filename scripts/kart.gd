@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 		else:
 			current_speed = 0
 
-	var rotation := get_rotation()
-	var direction := Vector2.from_angle(rotation - PI / 2)
+	var car_rotation := get_rotation()
+	var direction := Vector2.from_angle(car_rotation - PI / 2)
 	velocity = direction * current_speed
 	move_and_slide()
 
