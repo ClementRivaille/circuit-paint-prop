@@ -11,7 +11,6 @@
 radius = 9.0
 
 [node name="TrackItem" type="Area2D"]
-position = Vector2(333, 55)
 collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_k1lah")

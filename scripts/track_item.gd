@@ -1,9 +1,8 @@
 extends Area2D
 class_name TrackItem
 
-enum TrackItemType { START, CHECKPOINT, GOAL }
-
-@export var type: TrackItemType
+@export var type: Store.TrackItemType
+@export var index: int = -1
 
 @export var checkpoint_texture: Texture2D
 @export var start_texture: Texture2D
@@ -21,9 +20,9 @@ var mouse_inside := false
 var pos_diff := Vector2(0.0, 0.0)
 
 func _ready() -> void:
-	if type == TrackItemType.START:
+	if type == Store.TrackItemType.START:
 		icon.texture = start_texture
-	elif type == TrackItemType.GOAL:
+	elif type == Store.TrackItemType.GOAL:
 		icon.texture = goal_texture
 	else:
 		icon.texture = checkpoint_texture
@@ -47,8 +46,9 @@ func _input(event: InputEvent) -> void:
 			GameStore.drag_item()
 		elif dragged && !event.is_pressed():
 			dragged = false
-			GameStore.drop_item()
 			fill.visible = false
+			var map_pos := GameStore.get_position_on_map(global_position)
+			GameStore.drop_item(type, map_pos, index)
 			if mouse_inside:
 				GameStore.hover_grab_item()
 			else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=21 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="14_crts4"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="14_nfme0"]
+[ext_resource type="Script" path="res://scripts/items_placement.gd" id="16_vo2po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -32,6 +33,7 @@ size = Vector2(200, 200)
 anchor_mode = 0
 
 [node name="Kart" parent="." instance=ExtResource("2_4r1ug")]
+visible = false
 z_index = 1
 position = Vector2(200, 112)
 max_velocity = 45.0
@@ -161,16 +163,18 @@ theme_override_font_sizes/font_size = 8
 text = "debug"
 
 [node name="Items" type="Node2D" parent="."]
+script = ExtResource("16_vo2po")
+cell_size = Vector2(32, 16)
+item_prefab = ExtResource("12_vgk8r")
 
 [node name="Start" parent="Items" instance=ExtResource("12_vgk8r")]
 type = 0
 
-[node name="Checkpoint1" parent="Items" instance=ExtResource("12_vgk8r")]
-
-[node name="Checkpoint2" parent="Items" instance=ExtResource("12_vgk8r")]
-
 [node name="Goal" parent="Items" instance=ExtResource("12_vgk8r")]
 type = 2
+
+[node name="SelectionTarget" type="Node2D" parent="Items"]
+position = Vector2(327, 43)
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]

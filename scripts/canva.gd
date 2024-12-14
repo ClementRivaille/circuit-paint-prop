@@ -5,16 +5,12 @@ class_name PaintingCanva
 @export var canva_width := 200
 @export var canva_height := 200
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _enter_tree() -> void:
+	GameStore.set_tilemap(self)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if (GameStore.painting):
-		var local_pos := GameStore.cursor_position - (get_viewport().get_visible_rect().size / 2)
-		var cursor_pos := local_to_map(local_pos)
+		var cursor_pos := GameStore.get_position_on_map(GameStore.cursor_position)
 		paint_circle(cursor_pos.x, cursor_pos.y, brush_radius)
 
 func paint_circle(cx: int, cy: int, r: int):
@@ -41,7 +37,6 @@ func draw_octants(center: Vector2i, point: Vector2i):
 	draw_circle_line(center, abs(point.y), point.x)
 	draw_circle_line(center, abs(point.y), -point.x)
 	draw_circle_line(center, point.x, -point.y)
-
 
 func draw_circle_line(center: Vector2i, width: int, y: int):
 	var ypos := center.y + y

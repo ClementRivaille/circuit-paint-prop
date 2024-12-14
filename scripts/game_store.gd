@@ -6,6 +6,8 @@ signal start_grab
 signal hover_grab
 signal exit_grab
 
+enum TrackItemType { START, CHECKPOINT, GOAL }
+
 var cursor_position: Vector2:
 	get = get_cursor_position, set = set_cursor_position
 func get_cursor_position():
@@ -33,11 +35,37 @@ func hover_grab_item():
 func drag_item():
 	dragging = true
 	start_grab.emit()
-func drop_item():
-	dragging = false
 func exit_grab_item():
 	hovering_grab = false
 	exit_grab.emit()
 
+func drop_item(type: TrackItemType, position: Vector2i, index: int = -1):
+	dragging = false
+
+	if (type == TrackItemType.START):
+		start_position = position
+	elif (type == TrackItemType.GOAL):
+		goal_position = position
+	elif (index >= 0 && index < checkpoints.size()):
+		checkpoints[index] = position
+
 func is_cursor_free() -> bool:
 	return !painting && !dragging && !hovering_grab
+
+var goal_position := Vector2i(0, 0)
+var start_position := Vector2i(0,0)
+var checkpoints: Array[Vector2i] = []
+
+var tilemap_position := Vector2(0,0)
+var tilemap: TileMapLayer:
+	set = set_tilemap
+func set_tilemap(tilemap_inst: TileMapLayer):
+	tilemap = tilemap_inst
+	tilemap_position = tilemap.global_position
+
+func get_position_on_map(world_pos: Vector2) -> Vector2i:
+	var local_pos := world_pos - tilemap_position
+	return tilemap.local_to_map(local_pos)
+
+func generate_checkpoints(checkpoints_positions: Array[Vector2i]):
+	checkpoints = checkpoints_positions.duplicate()
