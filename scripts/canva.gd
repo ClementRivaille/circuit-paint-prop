@@ -2,6 +2,8 @@ extends TileMapLayer
 class_name PaintingCanva
 
 @export var brush_radius: int =10
+@export var canva_width := 200
+@export var canva_height := 200
 
 var selected_tile := Vector2(1,0)
 
@@ -23,7 +25,6 @@ func paint_circle(cx: int, cy: int, r: int):
 	var y := -r
 	var p := -r # -0.25?
 
-	print("start")
 	while x < -y:
 		if p > 0:
 			# coordinates outside
@@ -33,7 +34,6 @@ func paint_circle(cx: int, cy: int, r: int):
 			# inside
 			p += 2*x + 1
 
-		print("Hey " + str(y) + " Bu " + str(x))
 		draw_octants(Vector2i(cx, cy), Vector2i(x, y))
 		x += 1
 
@@ -49,5 +49,6 @@ func draw_circle_line(center: Vector2i, width: int, y: int):
 	var ypos := center.y + y
 	var xpos := center.x - width
 	while xpos <= center.x + width:
-		set_cell(Vector2i(xpos, ypos), 0, selected_tile)
+		if abs(xpos) <= canva_width / 2 && abs(ypos) <= canva_height / 2:
+			set_cell(Vector2i(xpos, ypos), 0, selected_tile)
 		xpos += 1

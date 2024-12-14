@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=10 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
 [ext_resource type="Script" path="res://scripts/cursor_manager.gd" id="3_qabto"]
 [ext_resource type="Script" path="res://scripts/canva.gd" id="3_uhgos"]
 [ext_resource type="Texture2D" uid="uid://c7yrn5dac0q8c" path="res://assets/sprites/cursor/cursor.png" id="4_f6ifv"]
+[ext_resource type="Texture2D" uid="uid://cxmhxws27b0tu" path="res://assets/sprites/cursor/paint.png" id="6_s3s6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwq4k"]
 size = Vector2(202, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2458f"]
+size = Vector2(200, 200)
 
 [node name="Main" type="Node2D"]
 
@@ -60,6 +64,13 @@ position = Vector2(200, 215)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canva/Walls/Bottom"]
 shape = SubResource("RectangleShape2D_pwq4k")
 
+[node name="DrawArea" type="Area2D" parent="Canva"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canva/DrawArea"]
+shape = SubResource("RectangleShape2D_2458f")
+
 [node name="CursorManager" type="Sprite2D" parent="."]
 z_index = 2
 texture_filter = 1
@@ -67,3 +78,7 @@ texture = ExtResource("4_f6ifv")
 offset = Vector2(6, 6)
 script = ExtResource("3_qabto")
 default = ExtResource("4_f6ifv")
+brush = ExtResource("6_s3s6i")
+
+[connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
+[connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]
