@@ -24,7 +24,7 @@ func activate():
 
 	current_speed = 0.0
 	var goal_position := GameStore.get_global_position(GameStore.goal_position)
-	rotation = global_position.angle_to_point(goal_position)
+	rotation = global_position.angle_to_point(goal_position) + PI/2
 
 	active = true
 
