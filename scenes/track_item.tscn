@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://becsavtygatmv"]
+
+[ext_resource type="Script" path="res://scripts/track_item.gd" id="1_k1lah"]
+[ext_resource type="Texture2D" uid="uid://datjsmvmjkmb7" path="res://assets/sprites/ui/grab-circle.png" id="1_ruu67"]
+[ext_resource type="Texture2D" uid="uid://dx65vk6gm7k4j" path="res://assets/sprites/ui/grab-fill.png" id="2_q6bar"]
+[ext_resource type="Texture2D" uid="uid://ca3na3fvjch65" path="res://assets/sprites/kart-xs.png" id="3_cvqwn"]
+[ext_resource type="Texture2D" uid="uid://cr8nxvd722dye" path="res://assets/sprites/checkpoint.png" id="3_k5pth"]
+[ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="4_mf4v2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shbhs"]
+radius = 9.0
+
+[node name="TrackItem" type="Area2D"]
+position = Vector2(333, 55)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_k1lah")
+type = 1
+checkpoint_texture = ExtResource("3_k5pth")
+start_texture = ExtResource("3_cvqwn")
+goal_texture = ExtResource("4_mf4v2")
+
+[node name="Outline" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.890196)
+texture_filter = 1
+texture = ExtResource("1_ruu67")
+
+[node name="Fill" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
+texture_filter = 1
+texture = ExtResource("2_q6bar")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_k5pth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_shbhs")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

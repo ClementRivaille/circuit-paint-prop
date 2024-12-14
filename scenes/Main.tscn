@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=20 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -7,10 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://c7yrn5dac0q8c" path="res://assets/sprites/cursor/cursor.png" id="4_f6ifv"]
 [ext_resource type="Texture2D" uid="uid://cxmhxws27b0tu" path="res://assets/sprites/cursor/paint.png" id="6_s3s6i"]
 [ext_resource type="PackedScene" uid="uid://d0fdctfj4c7e6" path="res://scenes/color_select.tscn" id="7_gy87y"]
+[ext_resource type="Texture2D" uid="uid://c4maxrtwlrcyf" path="res://assets/sprites/cursor/grab.png" id="7_qwu64"]
+[ext_resource type="Texture2D" uid="uid://0fm5a3au45fk" path="res://assets/sprites/cursor/drag.png" id="8_uftn5"]
 [ext_resource type="Texture2D" uid="uid://cf3glhk42mskr" path="res://assets/sprites/icons/wall.png" id="9_2usq4"]
 [ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="9_sof8g"]
 [ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="10_2oa1c"]
 [ext_resource type="Texture2D" uid="uid://7v5d2dc5cl5v" path="res://assets/sprites/icons/death.png" id="11_imne4"]
+[ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
+[ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="14_crts4"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="14_nfme0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -84,6 +89,8 @@ offset = Vector2(6, 6)
 script = ExtResource("3_qabto")
 default = ExtResource("4_f6ifv")
 brush = ExtResource("6_s3s6i")
+grab_hover = ExtResource("7_qwu64")
+grabbing = ExtResource("8_uftn5")
 
 [node name="Toolkit" type="Control" parent="."]
 layout_mode = 3
@@ -132,6 +139,38 @@ layout_mode = 2
 icon = ExtResource("11_imne4")
 text = "Void"
 tile = Vector2i(0, 2)
+
+[node name="Debug" type="Control" parent="Toolkit"]
+anchors_preset = 0
+offset_left = 313.0
+offset_top = 107.0
+offset_right = 387.435
+offset_bottom = 193.88
+script = ExtResource("14_nfme0")
+
+[node name="Console" type="Label" parent="Toolkit/Debug"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_crts4")
+theme_override_font_sizes/font_size = 8
+text = "debug"
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Start" parent="Items" instance=ExtResource("12_vgk8r")]
+type = 0
+
+[node name="Checkpoint1" parent="Items" instance=ExtResource("12_vgk8r")]
+
+[node name="Checkpoint2" parent="Items" instance=ExtResource("12_vgk8r")]
+
+[node name="Goal" parent="Items" instance=ExtResource("12_vgk8r")]
+type = 2
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]
