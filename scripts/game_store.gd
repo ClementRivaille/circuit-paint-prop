@@ -8,11 +8,16 @@ signal exit_grab
 signal mode_changed(mode: GameMode)
 signal checkpoint_collected
 signal goal_reached
+signal start_validated(valid: bool)
+signal goal_validated(valid: bool)
+signal checkpoint_validated(index: int, valid: bool)
+signal validation_needed
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS }
 
 var END_DELAY := 2.0
+var CANVA_DIMENSIONS := Vector2(200,200)
 
 var cursor_position: Vector2:
 	get = get_cursor_position, set = set_cursor_position
@@ -26,6 +31,8 @@ var painting: bool = false:
 func set_painting(value: bool):
 	painting = value
 	painting_change.emit(value)
+	if (!painting):
+		validation_needed.emit()
 
 var selected_color: Vector2i = Vector2i(0,0):
 	set = set_selected_color
@@ -55,12 +62,17 @@ func drop_item(type: TrackItemType, position: Vector2i, index: int = -1):
 	elif (index >= 0 && index < checkpoints.size()):
 		checkpoints[index] = position
 
+	validation_needed.emit()
+
 func is_cursor_free() -> bool:
 	return !painting && !dragging && !hovering_grab
 
 var goal_position := Vector2i(0, 0)
 var start_position := Vector2i(0,0)
 var checkpoints: Array[Vector2i] = []
+var start_valid := false
+var goal_valid := false
+var checkpoints_valid: Array[bool] = []
 
 var tilemap_position := Vector2(0,0)
 var tilemap: TileMapLayer:
@@ -79,6 +91,35 @@ func get_global_position(map_pos: Vector2i) -> Vector2:
 
 func generate_checkpoints(checkpoints_positions: Array[Vector2i]):
 	checkpoints = checkpoints_positions.duplicate()
+	checkpoints_valid = []
+	for c in checkpoints:
+		checkpoints_valid.append(false)
+
+func validate_start(valid: bool):
+	start_valid = valid
+	start_validated.emit(valid)
+
+func validate_goal(valid: bool):
+	goal_valid = valid
+	goal_validated.emit(valid)
+
+func validate_checkpoint(index: int, valid: bool):
+	if index >= checkpoints_valid.size(): return
+	checkpoints_valid[index] = valid
+	checkpoint_validated.emit(index, valid)
+
+func are_item_placed() -> bool:
+	var valid := start_valid && goal_valid && checkpoints_valid.all(func (valid): return valid)
+	var all_pos: Array[Vector2i] = [start_position, goal_position]
+	all_pos.append_array(checkpoints)
+	var all_in_canva := all_pos.all(func (pos: Vector2i): return is_within_canva(pos))
+
+	return valid && all_in_canva
+
+func is_within_canva(point: Vector2i) -> bool:
+	return abs(point.x) <= CANVA_DIMENSIONS.x / 2.0 && abs(point.y) <= CANVA_DIMENSIONS.y / 2.0
+
+## ---- RACE
 
 var current_mode: GameMode =  GameMode.PAINTING
 var total_checkpoints := 4: set = set_total_checkpoints

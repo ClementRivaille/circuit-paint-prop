@@ -2,8 +2,6 @@ extends TileMapLayer
 class_name PaintingCanva
 
 @export var brush_radius: int =10
-@export var canva_width := 200
-@export var canva_height := 200
 
 func _enter_tree() -> void:
 	GameStore.set_tilemap(self)
@@ -41,7 +39,8 @@ func draw_octants(center: Vector2i, point: Vector2i):
 func draw_circle_line(center: Vector2i, width: int, y: int):
 	var ypos := center.y + y
 	var xpos := center.x - width
+	var point := Vector2i(xpos, ypos)
 	while xpos <= center.x + width:
-		if abs(xpos) <= canva_width / 2.0 && abs(ypos) <= canva_height / 2.0:
-			set_cell(Vector2i(xpos, ypos), 0, GameStore.selected_color)
+		if GameStore.is_within_canva(point):
+			set_cell(point, 0, GameStore.selected_color)
 		xpos += 1

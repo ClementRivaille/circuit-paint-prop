@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=33 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -26,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
+[ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="28_4v086"]
 
@@ -194,6 +195,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 script = ExtResource("17_drn1v")
+disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
 
 [node name="Label" type="Label" parent="Toolkit/RaceButton"]
 layout_mode = 1
@@ -228,6 +230,10 @@ type = 2
 
 [node name="SelectionTarget" type="Node2D" parent="Items"]
 position = Vector2(327, 43)
+
+[node name="ItemValidation" type="Node2D" parent="Items"]
+script = ExtResource("26_i76g3")
+min_distance = 10
 
 [node name="StaticUI" type="CanvasLayer" parent="."]
 
