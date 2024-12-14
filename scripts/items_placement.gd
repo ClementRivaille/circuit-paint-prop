@@ -12,6 +12,7 @@ class_name ItemsPlacement
 
 func _ready() -> void:
 	init_canva()
+	GameStore.mode_changed.connect(on_mode_change)
 
 func init_canva():
 	# place start item
@@ -44,3 +45,9 @@ func init_canva():
 	# place goal item
 	goal_item.position = selection_target.position + grid_pos * cell_size
 	GameStore.drop_item(Store.TrackItemType.GOAL, GameStore.get_position_on_map(goal_item.global_position))
+
+func on_mode_change(mode: Store.GameMode):
+	if mode == Store.GameMode.RACING:
+		visible = false
+	elif mode == Store.GameMode.PAINTING:
+		visible = true

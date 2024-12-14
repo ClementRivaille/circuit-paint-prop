@@ -1,6 +1,5 @@
 extends Sprite2D
 
-
 @export var default: Texture2D
 @export var brush: Texture2D
 @export var grab_hover: Texture2D
@@ -16,6 +15,7 @@ func _ready() -> void:
 	GameStore.hover_grab.connect(on_hover_grab)
 	GameStore.start_grab.connect(on_start_drag)
 	GameStore.exit_grab.connect(on_exit_drag)
+	GameStore.mode_changed.connect(on_change_mode)
 
 func _process(_delta: float) -> void:
 	var pos := get_viewport().get_mouse_position()
@@ -23,6 +23,8 @@ func _process(_delta: float) -> void:
 	GameStore.set_cursor_position(pos)
 
 func _input(event: InputEvent) -> void:
+	if GameStore.current_mode == Store.GameMode.RACING: return
+
 	if (GameStore.is_cursor_free() && event.is_action_pressed("click") && on_canva):
 		GameStore.set_painting(true)
 	elif (GameStore.painting && event.is_action_released("click")):
@@ -55,3 +57,6 @@ func on_start_drag():
 func on_exit_drag():
 	if (!GameStore.painting):
 		set_texture_neutral()
+
+func on_change_mode(mode: Store.GameMode):
+	visible = mode != Store.GameMode.RACING

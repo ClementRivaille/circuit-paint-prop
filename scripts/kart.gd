@@ -36,7 +36,7 @@ func deactivate():
 func on_change_mode(mode: Store.GameMode):
 	if mode == Store.GameMode.RACING:
 		activate()
-	elif !active:
+	elif active:
 		deactivate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

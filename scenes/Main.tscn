@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=27 format=4 uid="uid://b6idp1aittwg"]
 
+[ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
 [ext_resource type="Script" path="res://scripts/cursor_manager.gd" id="3_qabto"]
@@ -21,6 +22,7 @@
 [ext_resource type="Script" path="res://scripts/switch_button.gd" id="17_drn1v"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
+[ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -35,6 +37,7 @@ size = Vector2(200, 200)
 
 [node name="PaintCamera" type="Camera2D" parent="."]
 anchor_mode = 0
+script = ExtResource("1_f3075")
 
 [node name="Kart" parent="." instance=ExtResource("2_4r1ug")]
 z_index = 1
@@ -215,6 +218,28 @@ type = 2
 
 [node name="SelectionTarget" type="Node2D" parent="Items"]
 position = Vector2(327, 43)
+
+[node name="StaticUI" type="CanvasLayer" parent="."]
+
+[node name="RacingUI" type="Control" parent="StaticUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("22_x074b")
+
+[node name="Controls" type="Label" parent="StaticUI/RacingUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.0
+offset_top = 4.0
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "Esc: back to Edit"
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]
