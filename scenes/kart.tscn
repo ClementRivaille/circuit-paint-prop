@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://5q6xyekrnr3d"]
+
+[ext_resource type="Texture2D" uid="uid://b6m5u1g7rcgj" path="res://assets/sprites/kart.png" id="1_57ej7"]
+[ext_resource type="Script" path="res://scripts/kart.gd" id="1_ngqb2"]
+
+[node name="Kart" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ngqb2")
+max_velocity = 0.01
+steer_force = 0.06
+deceleration = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -3)
+ignore_rotation = false
+zoom = Vector2(8, 8)
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_57ej7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(8, -8, -8, -8, -8, -4, -4, -4, -4, 3, -7, 3, -7, 7, 8, 7, 8, 3, 4, 3, 4, -4, 8, -4)
