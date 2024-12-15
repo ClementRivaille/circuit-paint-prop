@@ -5,6 +5,7 @@ class_name PaintingCanva
 
 func _enter_tree() -> void:
 	GameStore.set_tilemap(self)
+	GameStore.level_begin.connect(init_level)
 
 func _process(_delta: float) -> void:
 	if (GameStore.painting):
@@ -42,3 +43,11 @@ func draw_circle_line(center: Vector2i, width: int, y: int):
 		if GameStore.is_within_canva(point):
 			set_cell(point, 0, GameStore.selected_color)
 		point.x += 1
+
+func init_level(level: Level):
+	clear()
+	var width := GameStore.CANVA_DIMENSIONS.x / 2
+	var height := GameStore.CANVA_DIMENSIONS.y / 2
+	for x in range(-width, width+1):
+		for y in range(-height, height+1):
+			set_cell(Vector2i(x,y), 0, level.fill)

@@ -26,6 +26,7 @@ func init_canva(level: Level):
 	start_item.locked = level.locked_start
 	GameStore.drop_item(Store.TrackItemType.START, GameStore.get_position_on_map(start_item.global_position))
 
+	reset_checkpoints()
 	var grid_pos := Vector2(0 if level.locked_start else 1,0)
 	# generate checkpoins
 	var checkpoints_pos: Array[Vector2i] = []
@@ -65,7 +66,7 @@ func init_canva(level: Level):
 func on_mode_change(mode: Store.GameMode):
 	if mode == Store.GameMode.RACING:
 		visible = false
-	elif mode == Store.GameMode.PAINTING:
+	elif mode == Store.GameMode.PAINTING || mode == Store.GameMode.RESULTS:
 		visible = true
 
 func set_start_validation(valid: bool):
@@ -76,3 +77,8 @@ func set_goal_validation(valid: bool):
 
 func set_checkpoint_validation(index: int, valid: bool):
 	checkpoints[index].set_valid(valid)
+
+func reset_checkpoints():
+	for checkpoint in checkpoints:
+		checkpoint.queue_free()
+	checkpoints = []

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=50 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
 [ext_resource type="Texture2D" uid="uid://mxt230mh2bag" path="res://assets/sprites/ui/prompt-box.png" id="24_lyn0d"]
+[ext_resource type="Script" path="res://scripts/racing_button.gd" id="25_85kf8"]
 [ext_resource type="Script" path="res://scripts/prompt.gd" id="25_rbiyc"]
 [ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
@@ -43,6 +44,7 @@
 [ext_resource type="Script" path="res://scripts/results.gd" id="39_gjx6r"]
 [ext_resource type="Texture2D" uid="uid://bhwvwgfdehl3q" path="res://assets/sprites/icons/chrono.png" id="39_halls"]
 [ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="40_52q4w"]
+[ext_resource type="Resource" uid="uid://b11dqulq4qtxc" path="res://levels/level_2.tres" id="40_76np2"]
 [ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="41_ggb73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
@@ -250,7 +252,7 @@ patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
-script = ExtResource("17_drn1v")
+script = ExtResource("25_85kf8")
 disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
 
 [node name="Label" type="Label" parent="Toolkit/RaceButton"]
@@ -445,7 +447,7 @@ script = ExtResource("30_4lnnx")
 
 [node name="LevelsSelection" type="Node2D" parent="."]
 script = ExtResource("35_bl3x2")
-levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq")])
+levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2")])
 
 [node name="Results" type="Control" parent="."]
 layout_mode = 3
@@ -485,7 +487,6 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 script = ExtResource("17_drn1v")
 to_mode = 0
-disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
 
 [node name="Label" type="Label" parent="Results/RestartBtn"]
 layout_mode = 1
@@ -559,9 +560,9 @@ self_modulate = Color(0.780392, 0.396078, 0.282353, 1)
 texture_filter = 1
 layout_mode = 0
 offset_left = 314.0
-offset_top = 169.0
+offset_top = 175.0
 offset_right = 392.55
-offset_bottom = 197.88
+offset_bottom = 203.88
 mouse_filter = 1
 texture = ExtResource("16_lna8n")
 patch_margin_left = 5
@@ -571,7 +572,6 @@ patch_margin_bottom = 5
 script = ExtResource("17_drn1v")
 to_mode = 0
 next_level = true
-disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
 
 [node name="Label" type="Label" parent="Results/NextLevelBtn"]
 layout_mode = 1

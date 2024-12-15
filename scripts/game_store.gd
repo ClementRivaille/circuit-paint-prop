@@ -113,12 +113,12 @@ func validate_checkpoint(index: int, valid: bool):
 	checkpoint_validated.emit(index, valid)
 
 func are_item_placed() -> bool:
-	var valid := start_valid && goal_valid && checkpoints_valid.all(func (valid): return valid)
+	var items_valid := start_valid && goal_valid && checkpoints_valid.all(func (valid): return valid)
 	var all_pos: Array[Vector2i] = [start_position, goal_position]
 	all_pos.append_array(checkpoints)
 	var all_in_canva := all_pos.all(func (pos: Vector2i): return is_within_canva(pos))
 
-	return valid && all_in_canva
+	return items_valid && all_in_canva
 
 func is_within_canva(point: Vector2i) -> bool:
 	return abs(point.x) <= CANVA_DIMENSIONS.x / 2.0 && abs(point.y) <= CANVA_DIMENSIONS.y / 2.0

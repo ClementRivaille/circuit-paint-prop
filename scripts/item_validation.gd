@@ -32,10 +32,10 @@ func validate_items():
 		var checkpoint_blocked = is_item_blocked(GameStore.checkpoints[index])
 		GameStore.validate_checkpoint(index, checkpoint_dist && !checkpoint_blocked)
 
-func is_item_separated(position: Vector2i, others: Array[Vector2i])-> bool:
+func is_item_separated(item_pos: Vector2i, others: Array[Vector2i])-> bool:
 	return others.all(func (pos):
-		return position.distance_to(pos) > min_distance
+		return item_pos.distance_to(pos) > min_distance
 	)
 
-func is_item_blocked(position: Vector2i):
-	return GameStore.read_cell_flag(position, "wall") || GameStore.read_cell_flag(position, "death")
+func is_item_blocked(item_pos: Vector2i):
+	return GameStore.read_cell_flag(item_pos, "wall") || GameStore.read_cell_flag(item_pos, "death")
