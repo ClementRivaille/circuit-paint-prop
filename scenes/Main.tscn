@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=45 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="40_52q4w"]
 [ext_resource type="Resource" uid="uid://b11dqulq4qtxc" path="res://levels/level_2.tres" id="40_76np2"]
 [ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="41_ggb73"]
+[ext_resource type="AudioStream" uid="uid://dt4dbglhs4jy6" path="res://assets/sfx/brush.ogg" id="43_j64u1"]
+[ext_resource type="Script" path="res://scripts/painting_sounds.gd" id="44_idtvv"]
 
 [node name="Main" type="Node2D"]
 
@@ -540,6 +542,10 @@ anchor_bottom = 1.0
 offset_bottom = 1.0
 texture = ExtResource("39_8pa43")
 stretch_mode = 3
+
+[node name="PaintingSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_j64u1")
+script = ExtResource("44_idtvv")
 
 [connection signal="mouse_entered" from="Canva" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva" to="CursorManager" method="exit_canva"]
