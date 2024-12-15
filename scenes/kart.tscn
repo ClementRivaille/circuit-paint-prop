@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://5q6xyekrnr3d"]
+[gd_scene load_steps=7 format=3 uid="uid://5q6xyekrnr3d"]
 
 [ext_resource type="Texture2D" uid="uid://b6m5u1g7rcgj" path="res://assets/sprites/kart.png" id="1_57ej7"]
 [ext_resource type="Script" path="res://scripts/kart.gd" id="1_ngqb2"]
 [ext_resource type="AudioStream" uid="uid://imwck8t35r2y" path="res://assets/sfx/engine.ogg" id="3_nfeu5"]
 [ext_resource type="Script" path="res://scripts/kart_sfx.gd" id="4_lsam6"]
+[ext_resource type="AudioStream" uid="uid://cctk65nwer58o" path="res://assets/sfx/collide.wav" id="5_2i2yh"]
 
 [sub_resource type="Curve" id="Curve_414ac"]
 _data = [Vector2(0, 0.406593), 0.0, 0.0, 0, 0, Vector2(0.513393, 1), 0.0, 0.0, 0, 0]
@@ -39,6 +40,10 @@ stream = ExtResource("3_nfeu5")
 volume_db = -60.0
 script = ExtResource("4_lsam6")
 volume_engine_max = 4
-volume_engine_min = -5
+volume_engine_min = -6
 highest_pitch = 1.5
 volume_progression = SubResource("Curve_414ac")
+
+[node name="collision" type="AudioStreamPlayer" parent="KartSFX"]
+stream = ExtResource("5_2i2yh")
+volume_db = -5.0

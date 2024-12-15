@@ -17,7 +17,7 @@ class_name Kart
 var current_speed := 0.0
 var active := false
 var engine_stopped := false
-var velocity_limit := 50
+var velocity_limit := 50.0
 
 var last_cell_visited := Vector2i(0,0)
 var on_ice := false
@@ -102,6 +102,7 @@ func _process(delta: float) -> void:
 	sfx.update_velocity(get_real_velocity().length())
 
 func on_collide():
+	sfx.play_collide(current_speed)
 	var speed_direction := -1 if get_real_velocity().rotated(get_rotation()).y > 0 else 1
 	current_speed = get_real_velocity().length() * speed_direction
 

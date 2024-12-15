@@ -7,6 +7,12 @@ class_name KartSFX
 @export var highest_pitch := 1.0
 @export var max_velocity := 50.0
 @export var volume_progression: Curve
+@export var collision_interval_min := 0.6
+@export var collision_min_speed := 10.0
+
+@onready var collisionSFX: AudioStreamPlayer = $collision
+
+var collision_locked := false
 
 func start_engine():
 	update_velocity(0)
@@ -22,3 +28,11 @@ func update_velocity(velocity: float):
 
 func stop_engine():
 	stop()
+
+func play_collide(speed: float):
+	if speed < collision_min_speed || collision_locked: return
+	collisionSFX.pitch_scale = lerpf(0.9, 1.1, randf())
+	collisionSFX.play()
+	collision_locked = true
+	await get_tree().create_timer(collision_interval_min).timeout
+	collision_locked = false
