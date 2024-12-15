@@ -12,6 +12,7 @@ class_name Kart
 
 @onready var camera: Camera2D = $Camera2D
 @onready var collision: CollisionPolygon2D = $CollisionPolygon2D
+@onready var sfx: KartSFX = $KartSFX
 
 var current_speed := 0.0
 var active := false
@@ -35,6 +36,7 @@ func activate():
 	global_position = GameStore.get_global_position(GameStore.start_position)
 	visible = true
 	camera.make_current()
+	sfx.start_engine()
 
 	current_speed = 0.0
 	var goal_position := GameStore.get_global_position(GameStore.goal_position)
@@ -52,6 +54,7 @@ func deactivate():
 	active = false
 	on_ice = false
 	on_water = false
+	sfx.stop_engine()
 
 func on_change_mode(mode: Store.GameMode):
 	if mode == Store.GameMode.RACING:
@@ -95,6 +98,8 @@ func _process(delta: float) -> void:
 
 	if is_on_wall():
 		on_collide()
+
+	sfx.update_velocity(get_real_velocity().length())
 
 func on_collide():
 	var speed_direction := -1 if get_real_velocity().rotated(get_rotation()).y > 0 else 1

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://5q6xyekrnr3d"]
+[gd_scene load_steps=6 format=3 uid="uid://5q6xyekrnr3d"]
 
 [ext_resource type="Texture2D" uid="uid://b6m5u1g7rcgj" path="res://assets/sprites/kart.png" id="1_57ej7"]
 [ext_resource type="Script" path="res://scripts/kart.gd" id="1_ngqb2"]
+[ext_resource type="AudioStream" uid="uid://imwck8t35r2y" path="res://assets/sfx/engine.ogg" id="3_nfeu5"]
+[ext_resource type="Script" path="res://scripts/kart_sfx.gd" id="4_lsam6"]
+
+[sub_resource type="Curve" id="Curve_414ac"]
+_data = [Vector2(0, 0.406593), 0.0, 0.0, 0, 0, Vector2(0.513393, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Kart" type="CharacterBody2D"]
 z_index = 2
@@ -27,3 +33,12 @@ texture = ExtResource("1_57ej7")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(8, -8, -8, -8, -8, -4, -4, -4, -4, 3, -7, 3, -7, 7, 8, 7, 8, 3, 4, 3, 4, -4, 8, -4)
+
+[node name="KartSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nfeu5")
+volume_db = -60.0
+script = ExtResource("4_lsam6")
+volume_engine_max = 4
+volume_engine_min = -5
+highest_pitch = 1.5
+volume_progression = SubResource("Curve_414ac")
