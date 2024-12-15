@@ -10,6 +10,7 @@ script = ExtResource("1_ngqb2")
 max_velocity = 0.01
 steer_force = 0.06
 deceleration = 10.0
+icy_deceleration = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -3)

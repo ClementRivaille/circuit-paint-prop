@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cf3glhk42mskr" path="res://assets/sprites/icons/wall.png" id="9_2usq4"]
 [ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="9_sof8g"]
 [ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="10_2oa1c"]
-[ext_resource type="Texture2D" uid="uid://7v5d2dc5cl5v" path="res://assets/sprites/icons/death.png" id="11_imne4"]
 [ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
 [ext_resource type="Script" path="res://scripts/toolkit.gd" id="13_7ymmt"]
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="14_crts4"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="14_nfme0"]
 [ext_resource type="Texture2D" uid="uid://bshs1s7305byf" path="res://assets/sprites/ui/button.png" id="16_lna8n"]
 [ext_resource type="Script" path="res://scripts/items_placement.gd" id="16_vo2po"]
+[ext_resource type="Texture2D" uid="uid://c07vsjt48qn40" path="res://assets/sprites/icons/ice.png" id="17_ba1ti"]
 [ext_resource type="Script" path="res://scripts/switch_button.gd" id="17_drn1v"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
@@ -155,9 +155,10 @@ tile = Vector2i(0, 1)
 
 [node name="Void" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
 layout_mode = 2
-icon = ExtResource("11_imne4")
-text = "Void"
-tile = Vector2i(0, 2)
+color = Color(0.847059, 0.827451, 0.964706, 1)
+icon = ExtResource("17_ba1ti")
+text = "Ice"
+tile = Vector2i(1, 1)
 
 [node name="Debug" type="Control" parent="Toolkit"]
 visible = false
@@ -401,6 +402,7 @@ offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("39_gjx6r")
+metadata/_edit_lock_ = true
 
 [node name="Time" type="Label" parent="Results"]
 layout_mode = 0

@@ -6,6 +6,7 @@ class_name Kart
 @export var accel: float = 1
 @export var steer_force: float = 10
 @export var deceleration :float = 0.9
+@export var icy_deceleration := 1.0
 
 @onready var camera: Camera2D = $Camera2D
 @onready var collision: CollisionPolygon2D = $CollisionPolygon2D
@@ -13,6 +14,9 @@ class_name Kart
 var current_speed := 0.0
 var active := false
 var engine_stopped := false
+
+var last_cell_visited := Vector2i(0,0)
+var on_ice := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,17 +55,26 @@ func _process(delta: float) -> void:
 	if collision.disabled:
 		collision.disabled = false
 
+	var current_cell := GameStore.get_position_on_map(global_position)
+	if current_cell != last_cell_visited:
+		last_cell_visited = current_cell
+		on_ice = GameStore.read_cell_flag(current_cell, "ice")
+
 	if (Input.is_action_pressed("steer_left") || Input.is_action_pressed("steer_right")):
 		var steering :float = min(steer_force, steer_force * current_speed / (max_velocity / 2)) * delta
 		steering *= 1 if Input.is_action_pressed(("steer_right")) else -1
 		rotate(steering)
 
+	var deceleration_value := icy_deceleration if on_ice else deceleration
 	if (Input.is_action_pressed("accelerate") || Input.is_action_pressed("brake")) && !engine_stopped:
+		var speed_gain := delta * (accel if Input.is_action_pressed("accelerate") else -accel)
+		if speed_gain < 0 && current_speed > 0 && on_ice:
+			speed_gain = speed_gain / 3
 		current_speed += delta * (accel if Input.is_action_pressed("accelerate") else -accel)
 		current_speed = clamp(current_speed, -max_backward_celocity, max_velocity)
 	elif abs(current_speed) > 0:
-		if abs(current_speed) > deceleration * delta:
-			var deceleration_force :float= delta * deceleration * (-1 if current_speed > 0 else 1)
+		if abs(current_speed) > deceleration_value * delta:
+			var deceleration_force :float= delta * deceleration_value * (-1 if current_speed > 0 else 1)
 			current_speed += deceleration_force
 		else:
 			current_speed = 0
