@@ -7,8 +7,8 @@ signal mouse_exited
 @export var brush_radius: int =10
 @onready var level_canva: TileMapLayer = $LevelCanva
 
-func _enter_tree() -> void:
-	GameStore.set_tilemap(self)
+func _ready() -> void:
+	GameStore.set_tilemaps(self, level_canva)
 	GameStore.level_begin.connect(init_level)
 
 func _process(_delta: float) -> void:

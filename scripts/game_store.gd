@@ -79,10 +79,11 @@ var goal_valid := false
 var checkpoints_valid: Array[bool] = []
 
 var tilemap_position := Vector2(0,0)
-var tilemap: TileMapLayer:
-	set = set_tilemap
-func set_tilemap(tilemap_inst: TileMapLayer):
+var tilemap: TileMapLayer
+var level_tilemap: TileMapLayer
+func set_tilemaps(tilemap_inst: TileMapLayer, level: TileMapLayer):
 	tilemap = tilemap_inst
+	level_tilemap = level
 	tilemap_position = tilemap.global_position
 
 func get_position_on_map(world_pos: Vector2) -> Vector2i:
@@ -124,7 +125,9 @@ func is_within_canva(point: Vector2i) -> bool:
 	return abs(point.x) <= CANVA_DIMENSIONS.x / 2.0 && abs(point.y) <= CANVA_DIMENSIONS.y / 2.0
 
 func read_cell_flag(cell: Vector2i, flag: String) -> bool:
-	var cell_data := tilemap.get_cell_tile_data(cell)
+	var level_cell := level_tilemap.get_cell_atlas_coords(cell).x != -1
+	var target_tilemap := level_tilemap if level_cell else tilemap
+	var cell_data := target_tilemap.get_cell_tile_data(cell)
 	if (cell_data == null):
 		return false
 	var value = cell_data.get_custom_data(flag)
