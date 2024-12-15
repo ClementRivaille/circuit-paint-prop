@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=54 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -50,6 +50,9 @@
 [ext_resource type="Script" path="res://scripts/racing_sounds.gd" id="48_ddcwe"]
 [ext_resource type="AudioStream" uid="uid://cxif4vgu67sdt" path="res://assets/sfx/checkpoint.wav" id="49_p0x5b"]
 [ext_resource type="AudioStream" uid="uid://13i3to1vmti8" path="res://assets/sfx/victory.wav" id="50_b3hrv"]
+[ext_resource type="Script" path="res://scripts/switch_scene_sfx.gd" id="51_gbof7"]
+[ext_resource type="AudioStream" uid="uid://vt6e7vf67m34" path="res://assets/sfx/switch_scene.wav" id="52_45ch7"]
+[ext_resource type="AudioStream" uid="uid://ql5mghs7ch6g" path="res://assets/sfx/back.wav" id="53_4aslk"]
 
 [node name="Main" type="Node2D"]
 
@@ -581,6 +584,17 @@ bus = &"RaceSFX"
 stream = ExtResource("50_b3hrv")
 volume_db = -3.0
 bus = &"RaceSFX"
+
+[node name="SwitchSceneSFX" type="Node2D" parent="."]
+script = ExtResource("51_gbof7")
+
+[node name="Next" type="AudioStreamPlayer" parent="SwitchSceneSFX"]
+stream = ExtResource("52_45ch7")
+bus = &"PaintSFX"
+
+[node name="Back" type="AudioStreamPlayer" parent="SwitchSceneSFX"]
+stream = ExtResource("53_4aslk")
+bus = &"PaintSFX"
 
 [connection signal="mouse_entered" from="Canva" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva" to="CursorManager" method="exit_canva"]
