@@ -158,7 +158,7 @@ func reset_checkpoints():
 func reach_goal():
 	goal_reached.emit()
 	await get_tree().create_timer(END_DELAY).timeout
-	change_mode(Store.GameMode.PAINTING)
+	change_mode(Store.GameMode.RESULTS)
 
 func reset_chrono_time():
 	chrono_time = 0

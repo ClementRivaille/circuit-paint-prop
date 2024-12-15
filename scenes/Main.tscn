@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=48 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="10_2oa1c"]
 [ext_resource type="Texture2D" uid="uid://7v5d2dc5cl5v" path="res://assets/sprites/icons/death.png" id="11_imne4"]
 [ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
+[ext_resource type="Script" path="res://scripts/toolkit.gd" id="13_7ymmt"]
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="14_crts4"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="14_nfme0"]
 [ext_resource type="Texture2D" uid="uid://bshs1s7305byf" path="res://assets/sprites/ui/button.png" id="16_lna8n"]
@@ -38,6 +39,11 @@
 [ext_resource type="Script" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="36_evuqn"]
 [ext_resource type="Resource" uid="uid://cvn7sb3r4kkjg" path="res://levels/level_1.tres" id="37_e4ogq"]
+[ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="39_8pa43"]
+[ext_resource type="Script" path="res://scripts/results.gd" id="39_gjx6r"]
+[ext_resource type="Texture2D" uid="uid://bhwvwgfdehl3q" path="res://assets/sprites/icons/chrono.png" id="39_halls"]
+[ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="40_52q4w"]
+[ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="41_ggb73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -120,12 +126,53 @@ brush = ExtResource("6_s3s6i")
 grab_hover = ExtResource("7_qwu64")
 grabbing = ExtResource("8_uftn5")
 
+[node name="Prompt" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 201.0
+offset_right = 280.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("24_lyn0d")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("25_rbiyc")
+
+[node name="Label" type="Label" parent="Prompt"]
+modulate = Color(1, 1, 1, 0.788235)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.756863)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("28_4v086")
+theme_override_font_sizes/font_size = 16
+text = "Your favorite game"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
 [node name="Toolkit" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 224.0
 mouse_filter = 2
+script = ExtResource("13_7ymmt")
 metadata/_edit_lock_ = true
 
 [node name="ColorPicker" type="VBoxContainer" parent="Toolkit"]
@@ -262,46 +309,6 @@ theme_override_fonts/font = ExtResource("17_kbh25")
 theme_override_font_sizes/font_size = 13
 text = "Place these on the track:"
 autowrap_mode = 3
-
-[node name="Prompt" type="NinePatchRect" parent="Toolkit"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -23.0
-offset_right = 80.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("24_lyn0d")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-script = ExtResource("25_rbiyc")
-
-[node name="Label" type="Label" parent="Toolkit/Prompt"]
-modulate = Color(1, 1, 1, 0.788235)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = -3.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.756863)
-theme_override_constants/shadow_offset_x = 0
-theme_override_fonts/font = ExtResource("28_4v086")
-theme_override_font_sizes/font_size = 16
-text = "Your favorite game"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
 
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("16_vo2po")
@@ -440,6 +447,157 @@ script = ExtResource("30_4lnnx")
 script = ExtResource("35_bl3x2")
 levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq")])
 
+[node name="Results" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 400.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("39_gjx6r")
+
+[node name="Time" type="Label" parent="Results"]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 100.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.0383711, 0.0383711, 0.0383711, 0.768627)
+theme_override_fonts/font = ExtResource("32_j30o2")
+theme_override_font_sizes/font_size = 16
+text = "00:00.000"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="NinePatchRect" parent="Results"]
+self_modulate = Color(0.780392, 0.396078, 0.282353, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 51.0
+offset_right = 86.55
+offset_bottom = 79.88
+mouse_filter = 1
+texture = ExtResource("16_lna8n")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("17_drn1v")
+to_mode = 0
+disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
+
+[node name="Label" type="Label" parent="Results/RestartBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.419998
+offset_right = -0.419998
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "Try again"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Results/RestartBtn"]
+modulate = Color(1, 1, 1, 0.776471)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_bottom = 1.0
+texture = ExtResource("39_halls")
+stretch_mode = 3
+
+[node name="Screenshot" type="NinePatchRect" parent="Results"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 11.0
+offset_right = 388.0
+offset_bottom = 68.0
+texture = ExtResource("40_52q4w")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="Results/Screenshot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.484
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 0.0239983
+grow_horizontal = 2
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "Share a screenshot!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="icon" type="TextureRect" parent="Results/Screenshot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5625
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("41_ggb73")
+stretch_mode = 3
+
+[node name="NextLevelBtn" type="NinePatchRect" parent="Results"]
+self_modulate = Color(0.780392, 0.396078, 0.282353, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 314.0
+offset_top = 169.0
+offset_right = 392.55
+offset_bottom = 197.88
+mouse_filter = 1
+texture = ExtResource("16_lna8n")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("17_drn1v")
+to_mode = 0
+next_level = true
+disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
+
+[node name="Label" type="Label" parent="Results/NextLevelBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.419998
+offset_right = -0.419998
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "Next level"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Results/NextLevelBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_bottom = 1.0
+texture = ExtResource("39_8pa43")
+stretch_mode = 3
+
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]
 [connection signal="gui_input" from="Toolkit/RaceButton" to="Toolkit/RaceButton" method="on_input"]
+[connection signal="gui_input" from="Results/RestartBtn" to="Results/RestartBtn" method="on_input"]
+[connection signal="gui_input" from="Results/NextLevelBtn" to="Results/NextLevelBtn" method="on_input"]
