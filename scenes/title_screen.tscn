@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://6eomamaydfsf"]
+
+[ext_resource type="Texture2D" uid="uid://bdnswsp8iesm6" path="res://assets/sprites/logo.png" id="1_b0r4i"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ulkgh"]
+[ext_resource type="Texture2D" uid="uid://4ri33kq3x1v8" path="res://assets/sprites/strip_alpha_large.png" id="2_sfys2"]
+[ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="3_aih8h"]
+[ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="4_e4t6v"]
+[ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="5_wfyug"]
+[ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="6_ep788"]
+[ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="7_k6bys"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ulkgh")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.918016, 0.941263, 0.817284, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 0.9825
+anchor_bottom = 0.53125
+grow_horizontal = 2
+texture = ExtResource("1_b0r4i")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Stripe1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0025
+anchor_top = 0.0401786
+anchor_right = 1.0025
+anchor_bottom = 0.129179
+offset_right = -1.0
+offset_bottom = 0.0639992
+texture = ExtResource("2_sfys2")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stripe2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.526786
+anchor_right = 1.005
+anchor_bottom = 0.615786
+offset_right = -1.0
+offset_bottom = 0.0639992
+texture = ExtResource("2_sfys2")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartBtn" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.803571
+anchor_right = 0.6
+anchor_bottom = 0.933036
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_aih8h")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="StartBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("4_e4t6v")
+theme_override_font_sizes/font_size = 26
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.624821
+anchor_right = 0.9975
+anchor_bottom = 0.687714
+offset_top = 0.0399933
+offset_bottom = -0.0480042
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 0.517647)
+theme_override_fonts/font = ExtResource("5_wfyug")
+theme_override_font_sizes/font_size = 8
+text = "Itooh - 2024"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 161.0
+offset_right = 87.0
+offset_bottom = 201.0
+texture = ExtResource("6_ep788")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 0
+offset_left = 320.0
+offset_top = 154.0
+offset_right = 362.0
+offset_bottom = 202.0
+texture = ExtResource("7_k6bys")
+stretch_mode = 5
+
+[connection signal="gui_input" from="StartBtn" to="." method="_on_start_btn_input"]

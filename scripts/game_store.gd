@@ -20,7 +20,7 @@ signal update_level_idx(idx: int)
 signal level_begin(level: Level)
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
-enum GameMode { PAINTING, RACING, RESULTS }
+enum GameMode { PAINTING, RACING, RESULTS, TITLE }
 
 var END_DELAY := 2.0
 var CANVA_DIMENSIONS := Vector2(200,200)
@@ -140,7 +140,7 @@ func read_cell_flag(cell: Vector2i, flag: String) -> bool:
 
 ## ---- RACE
 
-var current_mode: GameMode =  GameMode.PAINTING
+var current_mode: GameMode =  GameMode.TITLE
 var total_checkpoints := 4: set = set_total_checkpoints
 func set_total_checkpoints(total: int): total_checkpoints = total
 var checkpoints_collected := 0

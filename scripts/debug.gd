@@ -5,7 +5,8 @@ class_name Debug
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	print_item_coordinates()
+	if GameStore.current_mode == Store.GameMode.PAINTING:
+		print_item_coordinates()
 
 func print_item_coordinates():
 	console.text = "start: " + str(GameStore.start_position) \

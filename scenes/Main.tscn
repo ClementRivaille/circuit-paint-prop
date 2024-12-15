@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=59 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://scripts/chrono.gd" id="30_4lnnx"]
 [ext_resource type="Texture2D" uid="uid://c4lqrhghx8jlq" path="res://assets/sprites/ui/chrono-box.png" id="30_ro0ov"]
 [ext_resource type="Script" path="res://scripts/chrono_display.gd" id="31_s3r12"]
+[ext_resource type="PackedScene" uid="uid://6eomamaydfsf" path="res://scenes/title_screen.tscn" id="32_i6gei"]
 [ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="32_j30o2"]
 [ext_resource type="Script" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="36_evuqn"]
@@ -102,17 +103,6 @@ deceleration = 30.0
 wet_max_velocity = 10.0
 
 [node name="Canva" parent="." instance=ExtResource("3_osf88")]
-
-[node name="CursorManager" type="Sprite2D" parent="."]
-z_index = 2
-texture_filter = 1
-texture = ExtResource("4_f6ifv")
-offset = Vector2(6, 6)
-script = ExtResource("3_qabto")
-default = ExtResource("4_f6ifv")
-brush = ExtResource("6_s3s6i")
-grab_hover = ExtResource("7_qwu64")
-grabbing = ExtResource("8_uftn5")
 
 [node name="Prompt" type="NinePatchRect" parent="."]
 anchors_preset = 13
@@ -428,6 +418,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="TitleScreen" parent="StaticUI" instance=ExtResource("32_i6gei")]
+
+[node name="CursorManager" type="Sprite2D" parent="StaticUI"]
+z_index = 3
+texture_filter = 1
+texture = ExtResource("4_f6ifv")
+offset = Vector2(6, 6)
+script = ExtResource("3_qabto")
+default = ExtResource("4_f6ifv")
+brush = ExtResource("6_s3s6i")
+grab_hover = ExtResource("7_qwu64")
+grabbing = ExtResource("8_uftn5")
+
 [node name="Chrono" type="Node2D" parent="."]
 script = ExtResource("30_4lnnx")
 
@@ -631,8 +634,8 @@ bus = &"PaintSFX"
 stream = SubResource("AudioStreamInteractive_idfxx")
 script = ExtResource("56_g8cqi")
 
-[connection signal="mouse_entered" from="Canva" to="CursorManager" method="enter_canva"]
-[connection signal="mouse_exited" from="Canva" to="CursorManager" method="exit_canva"]
+[connection signal="mouse_entered" from="Canva" to="StaticUI/CursorManager" method="enter_canva"]
+[connection signal="mouse_exited" from="Canva" to="StaticUI/CursorManager" method="exit_canva"]
 [connection signal="gui_input" from="Toolkit/RaceButton" to="Toolkit/RaceButton" method="on_input"]
 [connection signal="gui_input" from="Results/RestartBtn" to="Results/RestartBtn" method="on_input"]
 [connection signal="gui_input" from="Results/NextLevelBtn" to="Results/NextLevelBtn" method="on_input"]
