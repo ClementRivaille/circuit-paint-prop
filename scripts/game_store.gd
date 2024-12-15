@@ -14,6 +14,8 @@ signal checkpoint_validated(index: int, valid: bool)
 signal validation_needed
 signal chrono_time_updated(time: int)
 signal start_race
+signal update_level_idx(idx: int)
+signal level_begin(level: Level)
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS }
@@ -161,3 +163,20 @@ func reach_goal():
 func reset_chrono_time():
 	chrono_time = 0
 	chrono_time_updated.emit(chrono_time)
+
+### Levels
+
+var level_idx := -1
+var total_levels := 0: set = init_total_levels
+func init_total_levels(total: int): total_levels = total
+var current_level: Level
+
+func next_level():
+	# TODO: something at the end of the game
+	level_idx = (level_idx + 1) % total_levels
+	update_level_idx.emit(level_idx)
+
+func load_level(level: Level):
+	current_level = level
+	set_total_checkpoints(level.nb_checkpoints)
+	level_begin.emit(current_level)

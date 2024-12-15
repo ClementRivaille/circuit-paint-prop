@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=42 format=4 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="TileSet" uid="uid://di6ahdlo1q5g4" path="res://assets/sprites/tile_set.tres" id="1_wk6c8"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
 [ext_resource type="Texture2D" uid="uid://mxt230mh2bag" path="res://assets/sprites/ui/prompt-box.png" id="24_lyn0d"]
+[ext_resource type="Script" path="res://scripts/prompt.gd" id="25_rbiyc"]
 [ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="28_4v086"]
@@ -34,6 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://c4lqrhghx8jlq" path="res://assets/sprites/ui/chrono-box.png" id="30_ro0ov"]
 [ext_resource type="Script" path="res://scripts/chrono_display.gd" id="31_s3r12"]
 [ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="32_j30o2"]
+[ext_resource type="Script" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="36_evuqn"]
+[ext_resource type="Resource" uid="uid://cvn7sb3r4kkjg" path="res://levels/level_1.tres" id="37_e4ogq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tcky"]
 size = Vector2(4, 202)
@@ -276,6 +280,7 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+script = ExtResource("25_rbiyc")
 
 [node name="Label" type="Label" parent="Toolkit/Prompt"]
 modulate = Color(1, 1, 1, 0.788235)
@@ -431,6 +436,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Chrono" type="Node2D" parent="."]
 script = ExtResource("30_4lnnx")
+
+[node name="LevelsSelection" type="Node2D" parent="."]
+script = ExtResource("35_bl3x2")
+levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq")])
 
 [connection signal="mouse_entered" from="Canva/DrawArea" to="CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva/DrawArea" to="CursorManager" method="exit_canva"]
