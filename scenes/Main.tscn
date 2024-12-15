@@ -56,6 +56,7 @@ max_backward_celocity = 15.0
 accel = 30.0
 steer_force = 2.0
 deceleration = 30.0
+wet_max_velocity = 10.0
 
 [node name="Canva" parent="." instance=ExtResource("3_osf88")]
 
