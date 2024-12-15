@@ -4,6 +4,8 @@ class_name SwitchButton
 @export var to_mode := Store.GameMode.RACING
 @export var disable_color: Color
 
+@onready var instructions: Label = $Instructions
+
 var enabled := false
 
 func _ready() -> void:
@@ -20,6 +22,7 @@ func on_input(event: InputEvent):
 func enable(value: bool):
 	enabled = value
 	modulate = Color.WHITE if enabled else disable_color
+	instructions.visible = value
 
 func on_validation(valid: bool):
 	enable(valid && GameStore.are_item_placed())

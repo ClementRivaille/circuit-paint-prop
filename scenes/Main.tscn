@@ -189,9 +189,9 @@ self_modulate = Color(0.780392, 0.396078, 0.282353, 1)
 texture_filter = 1
 layout_mode = 0
 offset_left = 314.0
-offset_top = 176.0
+offset_top = 175.0
 offset_right = 392.55
-offset_bottom = 204.88
+offset_bottom = 203.88
 mouse_filter = 1
 texture = ExtResource("16_lna8n")
 patch_margin_left = 5
@@ -220,6 +220,43 @@ anchor_bottom = 1.0
 offset_bottom = 1.0
 texture = ExtResource("18_kw523")
 stretch_mode = 3
+
+[node name="Instructions" type="Label" parent="Toolkit/RaceButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.484
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0182
+offset_top = 1.12
+offset_right = 48.725
+offset_bottom = 16.12
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("14_crts4")
+theme_override_font_sizes/font_size = 8
+text = "Get to all checkpoints and reach the goal"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemsInstructions" type="Label" parent="Toolkit"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 49.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("17_kbh25")
+theme_override_font_sizes/font_size = 13
+text = "Place these on the track:"
+autowrap_mode = 3
 
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("16_vo2po")
@@ -251,6 +288,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("22_x074b")
 checkpoint_complete_color = Color(0.40477, 0.90732, 0.376089, 1)
+metadata/_edit_lock_ = true
 
 [node name="Controls" type="Label" parent="StaticUI/RacingUI"]
 texture_filter = 1
