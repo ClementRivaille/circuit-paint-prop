@@ -10,6 +10,7 @@ func _ready() -> void:
 
 	# TODO load first level on title screen?
 	GameStore.next_level()
+	GameStore.change_mode(Store.GameMode.PAINTING)
 
 func load_next_level(idx: int):
 	GameStore.load_level(levels[idx])
