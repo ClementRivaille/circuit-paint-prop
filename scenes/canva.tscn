@@ -65,5 +65,14 @@ checkpoint_prefab = ExtResource("4_5faql")
 
 [node name="Goal" parent="TrackObjects" instance=ExtResource("5_o578n")]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -200.0
+offset_top = -193.0
+offset_right = 199.0
+offset_bottom = 210.0
+mouse_filter = 1
+color = Color(0.764137, 0.791912, 0.630317, 1)
+
 [connection signal="mouse_entered" from="DrawArea" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="DrawArea" to="." method="_on_mouse_exited"]
