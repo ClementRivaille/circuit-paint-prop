@@ -37,10 +37,8 @@ func draw_octants(center: Vector2i, point: Vector2i):
 	draw_circle_line(center, point.x, -point.y)
 
 func draw_circle_line(center: Vector2i, width: int, y: int):
-	var ypos := center.y + y
-	var xpos := center.x - width
-	var point := Vector2i(xpos, ypos)
-	while xpos <= center.x + width:
+	var point := Vector2i(center.x - width, center.y + y)
+	while point.x <= center.x + width:
 		if GameStore.is_within_canva(point):
 			set_cell(point, 0, GameStore.selected_color)
-		xpos += 1
+		point.x += 1
