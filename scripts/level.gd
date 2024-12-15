@@ -13,3 +13,4 @@ class_name Level
 @export var checkpoints_positions: Array[Vector2i]
 
 @export var fill := Vector2i(1,0)
+@export var map: PackedScene
