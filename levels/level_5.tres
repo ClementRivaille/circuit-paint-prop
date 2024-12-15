@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://be8igvvqsk8io"]
+
+[ext_resource type="PackedScene" uid="uid://cdha1w2ay2wfk" path="res://levels/level5_map.tscn" id="1_41deo"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_yf0rp"]
+
+[resource]
+script = ExtResource("1_yf0rp")
+prompt = "An 80s mascot"
+nb_checkpoints = 4
+locked_start = true
+start_position = Vector2i(0, 0)
+locked_goal = false
+goal_position = Vector2i(0, 0)
+checkpoints_positions = Array[Vector2i]([Vector2i(-58, -83), Vector2i(50, 80)])
+fill = Vector2i(0, 0)
+map = ExtResource("1_41deo")

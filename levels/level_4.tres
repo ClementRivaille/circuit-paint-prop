@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://c74rumik8p0g7"]
+
+[ext_resource type="PackedScene" uid="uid://cj5ud04vd1cn4" path="res://levels/level4_map.tscn" id="1_quwgr"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_y8tci"]
+
+[resource]
+script = ExtResource("1_y8tci")
+prompt = "A gorgeous landscape"
+nb_checkpoints = 5
+locked_start = false
+start_position = Vector2i(0, 0)
+locked_goal = false
+goal_position = Vector2i(0, 0)
+checkpoints_positions = Array[Vector2i]([Vector2i(-40, -40), Vector2i(40, -40), Vector2i(0, 35)])
+fill = Vector2i(0, 1)
+map = ExtResource("1_quwgr")

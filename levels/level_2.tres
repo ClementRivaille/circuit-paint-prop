@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://b11dqulq4qtxc"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_fo8r8"]
-[ext_resource type="PackedScene" uid="uid://cy7oht4xxfdld" path="res://levels/level2_map.tscn" id="1_jlvj2"]
+[ext_resource type="PackedScene" uid="uid://bsbaedf5rxvkp" path="res://levels/level2_map.tscn" id="1_jlvj2"]
 
 [resource]
 script = ExtResource("1_fo8r8")

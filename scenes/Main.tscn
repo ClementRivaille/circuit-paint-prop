@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=62 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -37,11 +37,14 @@
 [ext_resource type="Script" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="36_evuqn"]
 [ext_resource type="Resource" uid="uid://cvn7sb3r4kkjg" path="res://levels/level_1.tres" id="37_e4ogq"]
+[ext_resource type="Resource" uid="uid://b4widlcy26cbn" path="res://levels/level_3.tres" id="38_6b4lr"]
+[ext_resource type="Resource" uid="uid://c74rumik8p0g7" path="res://levels/level_4.tres" id="39_6jfkg"]
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="39_8pa43"]
 [ext_resource type="Script" path="res://scripts/results.gd" id="39_gjx6r"]
 [ext_resource type="Texture2D" uid="uid://bhwvwgfdehl3q" path="res://assets/sprites/icons/chrono.png" id="39_halls"]
 [ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="40_52q4w"]
 [ext_resource type="Resource" uid="uid://b11dqulq4qtxc" path="res://levels/level_2.tres" id="40_76np2"]
+[ext_resource type="Resource" uid="uid://be8igvvqsk8io" path="res://levels/level_5.tres" id="40_hot2y"]
 [ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="41_ggb73"]
 [ext_resource type="AudioStream" uid="uid://dt4dbglhs4jy6" path="res://assets/sfx/brush.ogg" id="43_j64u1"]
 [ext_resource type="Script" path="res://scripts/painting_sounds.gd" id="44_idtvv"]
@@ -448,7 +451,7 @@ script = ExtResource("30_4lnnx")
 
 [node name="LevelsSelection" type="Node2D" parent="."]
 script = ExtResource("35_bl3x2")
-levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2")])
+levels = Array[ExtResource("36_evuqn")]([ExtResource("38_6b4lr"), ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("39_6jfkg"), ExtResource("40_hot2y")])
 
 [node name="Results" type="Control" parent="."]
 layout_mode = 3
@@ -607,7 +610,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.146301, 0.411747, 0.257513, 1)
+color = Color(0.232952, 0.411747, 0.307861, 1)
 metadata/_edit_lock_ = true
 
 [node name="PaintingSounds" type="AudioStreamPlayer" parent="."]
