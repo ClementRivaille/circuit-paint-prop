@@ -23,6 +23,7 @@ func init_canva(level: Level):
 		start_item.position = to_local(global_start_pos)
 	else:
 		start_item.position = selection_target.position
+	start_item.locked = level.locked_start
 	GameStore.drop_item(Store.TrackItemType.START, GameStore.get_position_on_map(start_item.global_position))
 
 	var grid_pos := Vector2(0 if level.locked_start else 1,0)
@@ -36,6 +37,7 @@ func init_canva(level: Level):
 		if level.checkpoints_positions.size() > idx:
 			var global_pos := GameStore.get_global_position(level.checkpoints_positions[idx])
 			checkpoint_item.position = to_local(global_pos)
+			checkpoint_item.locked = true
 		else:
 			var grid_placement := selection_target.position + grid_pos * cell_size
 			checkpoint_item.position = grid_placement
@@ -57,6 +59,7 @@ func init_canva(level: Level):
 		goal_item.position = to_local(global_goal_pos)
 	else:
 		goal_item.position = selection_target.position + grid_pos * cell_size
+	goal_item.locked = level.locked_goal
 	GameStore.drop_item(Store.TrackItemType.GOAL, GameStore.get_position_on_map(goal_item.global_position))
 
 func on_mode_change(mode: Store.GameMode):

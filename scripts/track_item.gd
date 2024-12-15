@@ -3,6 +3,7 @@ class_name TrackItem
 
 @export var type: Store.TrackItemType
 @export var index: int = -1
+@export var locked := false
 
 @export var checkpoint_texture: Texture2D
 @export var start_texture: Texture2D
@@ -39,7 +40,7 @@ func _process(_delta: float) -> void:
 		pos_diff = mouse_pos - global_position
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton && !locked:
 		if event.is_pressed() && mouse_inside && !GameStore.dragging:
 			dragged = true
 			fill.visible = true
@@ -58,13 +59,13 @@ func _input(event: InputEvent) -> void:
 
 func _on_mouse_entered() -> void:
 	mouse_inside = true
-	if !dragged:
+	if !dragged && !locked:
 		outline.visible = true
 		GameStore.hover_grab_item()
 
 func _on_mouse_exited() -> void:
 	mouse_inside = false
-	if !dragged:
+	if !dragged && !locked:
 		outline.visible = false
 		GameStore.exit_grab_item()
 

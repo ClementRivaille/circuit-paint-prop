@@ -322,7 +322,6 @@ script = ExtResource("26_i76g3")
 min_distance = 10
 
 [node name="StaticUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="RacingUI" type="Control" parent="StaticUI"]
 layout_mode = 3
