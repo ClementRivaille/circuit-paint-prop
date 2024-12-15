@@ -8,6 +8,7 @@ class_name Kart
 @export var deceleration :float = 0.9
 
 @onready var camera: Camera2D = $Camera2D
+@onready var collision: CollisionPolygon2D = $CollisionPolygon2D
 
 var current_speed := 0.0
 var active := false
@@ -33,6 +34,7 @@ func activate():
 
 func deactivate():
 	visible = false
+	collision.disabled = true
 	position = Vector2(-10,-10)
 	active = false
 
@@ -45,6 +47,9 @@ func on_change_mode(mode: Store.GameMode):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !active: return
+
+	if collision.disabled:
+		collision.disabled = false
 
 	if (Input.is_action_pressed("steer_left") || Input.is_action_pressed("steer_right")):
 		var steering :float = min(steer_force, steer_force * current_speed / (max_velocity / 2)) * delta
