@@ -40,12 +40,12 @@ stream = ExtResource("3_nfeu5")
 volume_db = -60.0
 bus = &"RaceSFX"
 script = ExtResource("4_lsam6")
-volume_engine_max = 5
-volume_engine_min = -6
+volume_engine_max = 30
+volume_engine_min = 10
 highest_pitch = 1.5
 volume_progression = SubResource("Curve_414ac")
 
 [node name="collision" type="AudioStreamPlayer" parent="KartSFX"]
 stream = ExtResource("5_2i2yh")
-volume_db = -5.0
+volume_db = 5.0
 bus = &"RaceSFX"

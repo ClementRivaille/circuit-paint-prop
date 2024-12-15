@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/cpp_race.ogg-0b71e6455e7e249c4ee8c241e6ef9324
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop=true
+loop_offset=0.0
+bpm=225.9
+beat_count=80
 bar_beats=4
