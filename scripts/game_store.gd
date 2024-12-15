@@ -12,6 +12,8 @@ signal start_validated(valid: bool)
 signal goal_validated(valid: bool)
 signal checkpoint_validated(index: int, valid: bool)
 signal validation_needed
+signal chrono_time_updated(time: int)
+signal start_race
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS }
@@ -133,10 +135,16 @@ var current_mode: GameMode =  GameMode.PAINTING
 var total_checkpoints := 4: set = set_total_checkpoints
 func set_total_checkpoints(total: int): total_checkpoints = total
 var checkpoints_collected := 0
+var chrono_time := 0: set = set_chrono_time
+func set_chrono_time(time: int):
+	chrono_time = time
+	chrono_time_updated.emit(time)
 
 func change_mode(mode: GameMode):
 	current_mode = mode
 	mode_changed.emit(mode)
+	if mode == GameMode.RACING:
+		start_race.emit()
 
 func collect_checkpoint():
 	checkpoints_collected += 1
@@ -149,3 +157,7 @@ func reach_goal():
 	goal_reached.emit()
 	await get_tree().create_timer(END_DELAY).timeout
 	change_mode(Store.GameMode.PAINTING)
+
+func reset_chrono_time():
+	chrono_time = 0
+	chrono_time_updated.emit(chrono_time)
