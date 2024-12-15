@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6eomamaydfsf"]
+[gd_scene load_steps=10 format=3 uid="uid://6eomamaydfsf"]
 
 [ext_resource type="Texture2D" uid="uid://bdnswsp8iesm6" path="res://assets/sprites/logo.png" id="1_b0r4i"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ulkgh"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="5_wfyug"]
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="6_ep788"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="7_k6bys"]
+[ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="9_o2knb"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -138,5 +139,23 @@ offset_right = 362.0
 offset_bottom = 202.0
 texture = ExtResource("7_k6bys")
 stretch_mode = 5
+
+[node name="Thanks" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.660821
+anchor_right = 0.9995
+anchor_bottom = 0.763821
+offset_top = -0.0240097
+offset_right = 0.199982
+offset_bottom = -0.0960083
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.65098)
+theme_override_fonts/font = ExtResource("9_o2knb")
+text = "Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="gui_input" from="StartBtn" to="." method="_on_start_btn_input"]
