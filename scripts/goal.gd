@@ -3,6 +3,7 @@ class_name Goal
 
 signal reach
 
+@export var default_color := Color.WHITE
 @export var success_color := Color.BLUE
 
 var enabled := false
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func enable(value: bool):
 	enabled = value
+	modulate = Color(default_color)
 	modulate.a = 1.0 if enabled else 0.4
 	reached = false
 
@@ -25,4 +27,4 @@ func on_entered(_body: Node2D):
 	if enabled && !reached:
 		reach.emit()
 		reached = true
-		modulate = success_color
+		modulate = Color(success_color)
