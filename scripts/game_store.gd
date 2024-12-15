@@ -2,9 +2,11 @@ extends Node
 class_name Store
 
 signal painting_change(p: bool)
+signal color_changed(color: Vector2i)
 signal start_grab
 signal hover_grab
 signal exit_grab
+signal item_dropped
 signal mode_changed(mode: GameMode)
 signal checkpoint_collected
 signal goal_reached
@@ -42,6 +44,7 @@ var selected_color: Vector2i = Vector2i(0,0):
 	set = set_selected_color
 func set_selected_color(tile: Vector2i):
 	selected_color = tile
+	color_changed.emit(selected_color)
 
 var dragging := false
 var hovering_grab := false
@@ -67,6 +70,7 @@ func drop_item(type: TrackItemType, position: Vector2i, index: int = -1):
 		checkpoints[index] = position
 
 	validation_needed.emit()
+	item_dropped.emit()
 
 func is_cursor_free() -> bool:
 	return !painting && !dragging && !hovering_grab
