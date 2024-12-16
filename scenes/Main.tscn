@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=53 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="28_4v086"]
+[ext_resource type="Resource" uid="uid://b4widlcy26cbn" path="res://levels/level_3.tres" id="28_h3q5v"]
+[ext_resource type="Resource" uid="uid://c74rumik8p0g7" path="res://levels/level_4.tres" id="29_6jfpj"]
+[ext_resource type="Resource" uid="uid://be8igvvqsk8io" path="res://levels/level_5.tres" id="30_0jcsa"]
 [ext_resource type="Script" path="res://scripts/chrono.gd" id="30_4lnnx"]
 [ext_resource type="Texture2D" uid="uid://c4lqrhghx8jlq" path="res://assets/sprites/ui/chrono-box.png" id="30_ro0ov"]
 [ext_resource type="Script" path="res://scripts/chrono_display.gd" id="31_s3r12"]
@@ -284,7 +287,7 @@ script = ExtResource("30_4lnnx")
 
 [node name="LevelsSelection" type="Node2D" parent="."]
 script = ExtResource("35_bl3x2")
-levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2")])
+levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("28_h3q5v"), ExtResource("29_6jfpj"), ExtResource("30_0jcsa")])
 
 [node name="Results" type="Control" parent="."]
 layout_mode = 3
