@@ -168,7 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("22_x074b")
-checkpoint_complete_color = Color(0.40477, 0.90732, 0.376089, 1)
+checkpoint_complete_color = Color(0.2964, 0.411747, 0.289817, 1)
 metadata/_edit_lock_ = true
 
 [node name="Controls" type="Label" parent="StaticUI/RacingUI"]
@@ -177,9 +177,11 @@ layout_mode = 1
 anchors_preset = -1
 offset_left = 4.0
 offset_top = 4.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.517647)
+theme_override_constants/shadow_offset_x = 0
 theme_override_fonts/font = ExtResource("17_kbh25")
 theme_override_font_sizes/font_size = 13
-text = "Esc: back to Edit"
+text = "Tab: exit to canva"
 
 [node name="Checkpoints" type="Control" parent="StaticUI/RacingUI"]
 texture_filter = 1
