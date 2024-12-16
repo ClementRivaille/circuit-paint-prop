@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="1_rvus4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xw7ji"]
-size = Vector2(4, 6)
+size = Vector2(5, 5)
 
 [node name="Goal" type="Area2D"]
 script = ExtResource("1_ffpgt")
