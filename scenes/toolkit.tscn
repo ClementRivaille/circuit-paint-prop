@@ -35,33 +35,28 @@ theme_override_constants/separation = 7
 
 [node name="Road" parent="ColorPicker" instance=ExtResource("2_up3uu")]
 layout_mode = 2
-color = Color(0.447059, 0.447059, 0.447059, 1)
 icon = ExtResource("3_t7qyx")
 text = "Road"
 
 [node name="Wall1" parent="ColorPicker" instance=ExtResource("2_up3uu")]
 layout_mode = 2
-color = Color(0.917647, 0.0745098, 0.439216, 1)
 icon = ExtResource("4_5d15k")
 text = "Wall"
 tile = Vector2i(1, 0)
 
 [node name="Wall2" parent="ColorPicker" instance=ExtResource("2_up3uu")]
 layout_mode = 2
-color = Color(0.156863, 0.772549, 0.74902, 1)
 icon = ExtResource("4_5d15k")
 tile = Vector2i(2, 0)
 
 [node name="Water" parent="ColorPicker" instance=ExtResource("2_up3uu")]
 layout_mode = 2
-color = Color(0.364706, 0.294118, 0.87451, 1)
 icon = ExtResource("5_ct2u6")
 text = "Wet"
 tile = Vector2i(0, 1)
 
 [node name="Void" parent="ColorPicker" instance=ExtResource("2_up3uu")]
 layout_mode = 2
-color = Color(0.847059, 0.827451, 0.964706, 1)
 icon = ExtResource("6_ag6e1")
 text = "Ice"
 tile = Vector2i(1, 1)

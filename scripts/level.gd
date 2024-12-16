@@ -14,3 +14,4 @@ class_name Level
 
 @export var fill := Vector2i(1,0)
 @export var map: PackedScene
+@export var palette_id: int

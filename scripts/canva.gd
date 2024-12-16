@@ -34,7 +34,6 @@ func paint_circle(cx: int, cy: int, r: int):
 		x += 1
 
 func draw_octants(center: Vector2i, point: Vector2i):
-	# set_cell(Vector2i(center.x + point.x, center.y + point.y), 0, selected_tile)
 	draw_circle_line(center, point.x, point.y)
 	draw_circle_line(center, abs(point.y), point.x)
 	draw_circle_line(center, abs(point.y), -point.x)
@@ -44,7 +43,7 @@ func draw_circle_line(center: Vector2i, width: int, y: int):
 	var point := Vector2i(center.x - width, center.y + y)
 	while point.x <= center.x + width:
 		if GameStore.is_within_canva(point) && !is_cell_set_by_level(point):
-			set_cell(point, 0, GameStore.selected_color)
+			set_cell(point, GameStore.palette, GameStore.selected_color)
 		point.x += 1
 
 func init_level(level: Level):
@@ -60,7 +59,7 @@ func init_level(level: Level):
 	for x in range(-width, width+1):
 		for y in range(-height, height+1):
 			if !is_cell_set_by_level(Vector2i(x,y)):
-				set_cell(Vector2i(x,y), 0, level.fill)
+				set_cell(Vector2i(x,y), GameStore.palette, level.fill)
 
 func is_cell_set_by_level(coord: Vector2i)-> bool:
 	return level_canva.get_cell_atlas_coords(coord).x != -1

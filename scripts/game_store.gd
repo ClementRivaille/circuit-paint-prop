@@ -4,6 +4,7 @@ class_name Store
 signal painting_change(p: bool)
 signal color_changed(color: Vector2i)
 signal brush_changed(size: int)
+signal palette_changed(p: int)
 signal start_grab
 signal hover_grab
 signal exit_grab
@@ -51,6 +52,8 @@ var brush_size: int = 6: set = set_brush_size
 func set_brush_size(size: int):
 	brush_size = size
 	brush_changed.emit(size)
+
+var palette := 0
 
 var dragging := false
 var hovering_grab := false
@@ -195,5 +198,12 @@ func next_level():
 
 func load_level(level: Level):
 	current_level = level
+	palette = level.palette_id
 	set_total_checkpoints(level.nb_checkpoints)
+	palette_changed.emit(palette)
 	level_begin.emit(current_level)
+
+func get_palette_color(tile: Vector2i):
+	var atlas: TileSetAtlasSource = tilemap.tile_set.get_source(palette)
+	var image := atlas.texture.get_image()
+	return image.get_pixelv(tile)
