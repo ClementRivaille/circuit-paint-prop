@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 	rotation = camera.global_rotation
 
 func on_entered(body: Node2D):
-	collected.emit(self)
+	if body is Kart:
+		collected.emit(self)

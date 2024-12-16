@@ -23,8 +23,8 @@ func _process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_2d()
 	rotation = camera.global_rotation
 
-func on_entered(_body: Node2D):
-	if enabled && !reached:
+func on_entered(body: Node2D):
+	if body is Kart && enabled && !reached:
 		reach.emit()
 		reached = true
 		modulate = Color(success_color)
