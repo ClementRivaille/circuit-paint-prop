@@ -195,13 +195,12 @@ func init_total_levels(total: int): total_levels = total
 var current_level: Level
 
 func next_level():
-	if level_idx + 1 == total_levels:
-		# back to title at end
-		level_idx = -1
-		change_mode(GameMode.TITLE)
-	else:
-		level_idx = (level_idx + 1) % total_levels
-		update_level_idx.emit(level_idx)
+	level_idx = (level_idx + 1) % total_levels
+	update_level_idx.emit(level_idx)
+
+func end_game():
+	level_idx = -1
+	change_mode(GameMode.TITLE)
 
 func load_level(level: Level):
 	current_level = level

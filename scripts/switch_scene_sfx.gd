@@ -14,6 +14,8 @@ func _ready() -> void:
 func on_scene_change(_from: Store.GameMode, to: Store.GameMode):
 	if (to == Store.GameMode.RACING):
 		next.play()
+	elif to == Store.GameMode.TITLE:
+		back.play()
 	elif (to == Store.GameMode.PAINTING):
 		if level_idx != GameStore.level_idx:
 			next.play()

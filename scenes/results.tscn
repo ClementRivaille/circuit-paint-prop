@@ -1,0 +1,208 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkjgtbowhcmvl"]
+
+[ext_resource type="Script" path="res://scripts/results.gd" id="1_yruwr"]
+[ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="2_h5g3t"]
+[ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="3_dwpm6"]
+[ext_resource type="Script" path="res://scripts/switch_button.gd" id="4_tpk7w"]
+[ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="5_0jihc"]
+[ext_resource type="Texture2D" uid="uid://bhwvwgfdehl3q" path="res://assets/sprites/icons/chrono.png" id="6_65tv7"]
+[ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="7_kidc5"]
+[ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="8_wr5rk"]
+[ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="9_ox1q7"]
+[ext_resource type="Script" path="res://scripts/end_button.gd" id="10_m2rs3"]
+
+[node name="Results" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 400.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yruwr")
+metadata/_edit_lock_ = true
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 100.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.0383711, 0.0383711, 0.0383711, 0.768627)
+theme_override_fonts/font = ExtResource("2_h5g3t")
+theme_override_font_sizes/font_size = 16
+text = "00:00.000"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 51.0
+offset_right = 86.55
+offset_bottom = 79.88
+mouse_filter = 1
+texture = ExtResource("3_dwpm6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("4_tpk7w")
+to_mode = 0
+
+[node name="Label" type="Label" parent="RestartBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.419998
+offset_right = -0.419998
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("5_0jihc")
+theme_override_font_sizes/font_size = 13
+text = "Try again"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RestartBtn"]
+modulate = Color(1, 1, 1, 0.776471)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_bottom = 1.0
+texture = ExtResource("6_65tv7")
+stretch_mode = 3
+
+[node name="Screenshot" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 11.0
+offset_right = 388.0
+offset_bottom = 68.0
+texture = ExtResource("7_kidc5")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="Screenshot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.484
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 0.0239983
+grow_horizontal = 2
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_0jihc")
+theme_override_font_sizes/font_size = 13
+text = "Share a screenshot!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="icon" type="TextureRect" parent="Screenshot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5625
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_wr5rk")
+stretch_mode = 3
+
+[node name="NextLevelBtn" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 314.0
+offset_top = 175.0
+offset_right = 392.55
+offset_bottom = 203.88
+mouse_filter = 1
+texture = ExtResource("3_dwpm6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("4_tpk7w")
+to_mode = 0
+next_level = true
+
+[node name="Label" type="Label" parent="NextLevelBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.419998
+offset_right = -0.419998
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("5_0jihc")
+theme_override_font_sizes/font_size = 13
+text = "Next level"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NextLevelBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_bottom = 1.0
+texture = ExtResource("9_ox1q7")
+stretch_mode = 3
+
+[node name="EndBtn" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 314.0
+offset_top = 175.0
+offset_right = 392.55
+offset_bottom = 203.88
+mouse_filter = 1
+texture = ExtResource("3_dwpm6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("10_m2rs3")
+
+[node name="Label" type="Label" parent="EndBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00534689
+anchor_right = 0.998345
+anchor_bottom = 1.00415
+offset_left = -0.419998
+offset_right = -0.419998
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("5_0jihc")
+theme_override_font_sizes/font_size = 26
+text = "End"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.367212, 0.581464, 0.456976, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="gui_input" from="RestartBtn" to="RestartBtn" method="on_input"]
+[connection signal="gui_input" from="NextLevelBtn" to="NextLevelBtn" method="on_input"]
+[connection signal="gui_input" from="EndBtn" to="EndBtn" method="on_input"]
