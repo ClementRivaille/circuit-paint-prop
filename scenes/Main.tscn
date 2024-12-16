@@ -291,7 +291,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0164607, 0.0340815, 0.14699, 1)
+color = Color(0.10354, 0.0192436, 0.153778, 1)
 script = ExtResource("23_erdug")
 
 [node name="Chrono" type="Node2D" parent="."]
