@@ -215,7 +215,7 @@ theme_override_font_sizes/font_size = 8
 text = "debug"
 
 [node name="RaceButton" type="NinePatchRect" parent="Toolkit"]
-self_modulate = Color(0.70366, 0.0834275, 0.168977, 1)
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 texture_filter = 1
 layout_mode = 0
 offset_left = 314.0
@@ -297,7 +297,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.501707, 0.520366, 0.321782, 1)
+color = Color(0.764706, 0.792157, 0.627451, 1)
 metadata/_edit_lock_ = true
 
 [node name="Items" type="Node2D" parent="."]
@@ -607,7 +607,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.232952, 0.411747, 0.307861, 1)
+color = Color(0.367212, 0.581464, 0.456976, 1)
 metadata/_edit_lock_ = true
 
 [node name="PaintingSounds" type="AudioStreamPlayer" parent="."]
