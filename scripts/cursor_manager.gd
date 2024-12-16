@@ -32,7 +32,9 @@ func _input(event: InputEvent) -> void:
 		set_texture_neutral()
 
 func set_texture_neutral() -> void:
-	if (GameStore.hovering_grab):
+	if GameStore.current_mode != Store.GameMode.PAINTING:
+		texture = default
+	elif (GameStore.hovering_grab):
 		texture = grab_hover
 	elif on_canva:
 		texture = brush
@@ -41,7 +43,7 @@ func set_texture_neutral() -> void:
 
 func enter_canva():
 	on_canva = true
-	if (GameStore.is_cursor_free()):
+	if GameStore.is_cursor_free() && GameStore.current_mode == Store.GameMode.PAINTING:
 		texture = brush
 
 func exit_canva():
