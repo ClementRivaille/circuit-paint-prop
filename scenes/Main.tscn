@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=56 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -48,37 +48,69 @@
 [ext_resource type="AudioStream" uid="uid://13i3to1vmti8" path="res://assets/sfx/victory.wav" id="50_b3hrv"]
 [ext_resource type="Script" path="res://scripts/switch_scene_sfx.gd" id="51_gbof7"]
 [ext_resource type="AudioStream" uid="uid://vt6e7vf67m34" path="res://assets/sfx/switch_scene.wav" id="52_45ch7"]
+[ext_resource type="AudioStream" uid="uid://obh2ftpi2jbw" path="res://assets/music/cpp_title.ogg" id="52_crh3i"]
 [ext_resource type="AudioStream" uid="uid://ql5mghs7ch6g" path="res://assets/sfx/back.wav" id="53_4aslk"]
+[ext_resource type="AudioStream" uid="uid://b5372o01lsg1" path="res://assets/music/cpp_results.ogg" id="53_v0rnj"]
 [ext_resource type="AudioStream" uid="uid://cj74iyjjkgxw7" path="res://assets/music/cpp_paint.ogg" id="54_mvb0q"]
 [ext_resource type="AudioStream" uid="uid://bdt0cbwyhjbwv" path="res://assets/music/cpp_race.ogg" id="55_wpued"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="56_g8cqi"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_idfxx"]
-clip_count = 2
-clip_0/name = &"paint"
-clip_0/stream = ExtResource("54_mvb0q")
+clip_count = 4
+clip_0/name = &"title"
+clip_0/stream = ExtResource("52_crh3i")
 clip_0/auto_advance = 0
-clip_1/name = &"race"
-clip_1/stream = ExtResource("55_wpued")
+clip_1/name = &"paint"
+clip_1/stream = ExtResource("54_mvb0q")
 clip_1/auto_advance = 0
+clip_2/name = &"race"
+clip_2/stream = ExtResource("55_wpued")
+clip_2/auto_advance = 0
+clip_3/name = &"results"
+clip_3/stream = ExtResource("53_v0rnj")
+clip_3/auto_advance = 0
 _transitions = {
-Vector2i(0, 0): {
-"fade_beats": 1,
-"fade_mode": 0,
-"from_time": 0,
-"to_time": 0
-},
 Vector2i(0, 1): {
 "fade_beats": 0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 1
 },
-Vector2i(1, 0): {
+Vector2i(1, 1): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 2): {
+"fade_beats": 0,
+"fade_mode": 0,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(2, 1): {
 "fade_beats": 0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 0
+},
+Vector2i(2, 3): {
+"fade_beats": 2,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(3, 0): {
+"fade_beats": 0,
+"fade_mode": 0,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(3, 1): {
+"fade_beats": 0,
+"fade_mode": 0,
+"from_time": 1,
+"to_time": 1
 }
 }
 
@@ -286,7 +318,7 @@ grab_hover = ExtResource("7_qwu64")
 grabbing = ExtResource("8_uftn5")
 
 [node name="TransitionLayer" type="ColorRect" parent="StaticUI"]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
