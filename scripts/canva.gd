@@ -47,6 +47,7 @@ func draw_circle_line(center: Vector2i, width: int, y: int):
 		point.x += 1
 
 func init_level(level: Level):
+	await GameStore.end_transition
 	clear()
 
 	# draw level canva

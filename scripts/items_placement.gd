@@ -17,6 +17,8 @@ func _ready() -> void:
 	GameStore.level_begin.connect(init_canva)
 
 func init_canva(level: Level):
+	await GameStore.end_transition
+
 	# place start item
 	if (level.locked_start):
 		var global_start_pos := GameStore.get_global_position(level.start_position)

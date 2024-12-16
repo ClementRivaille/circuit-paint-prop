@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=54 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/switch_button.gd" id="17_drn1v"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
+[ext_resource type="Script" path="res://scripts/transition_layer.gd" id="23_erdug"]
 [ext_resource type="Texture2D" uid="uid://mxt230mh2bag" path="res://assets/sprites/ui/prompt-box.png" id="24_lyn0d"]
 [ext_resource type="Script" path="res://scripts/prompt.gd" id="25_rbiyc"]
 [ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
@@ -283,6 +284,15 @@ default = ExtResource("4_f6ifv")
 brush = ExtResource("6_s3s6i")
 grab_hover = ExtResource("7_qwu64")
 grabbing = ExtResource("8_uftn5")
+
+[node name="TransitionLayer" type="ColorRect" parent="StaticUI"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0164607, 0.0340815, 0.14699, 1)
+script = ExtResource("23_erdug")
 
 [node name="Chrono" type="Node2D" parent="."]
 script = ExtResource("30_4lnnx")

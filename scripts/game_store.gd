@@ -20,12 +20,15 @@ signal chrono_time_updated(time: int)
 signal start_race
 signal update_level_idx(idx: int)
 signal level_begin(level: Level)
+signal mode_transision(from: GameMode, to: GameMode)
+signal end_transition
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS, TITLE }
 
 var END_DELAY := 2.0
 var CANVA_DIMENSIONS := Vector2(200,200)
+var MODE_SWITCH_DURATION := 0.35
 
 var cursor_position: Vector2:
 	get = get_cursor_position, set = set_cursor_position
@@ -159,6 +162,10 @@ func set_chrono_time(time: int):
 	chrono_time_updated.emit(time)
 
 func change_mode(mode: GameMode):
+	mode_transision.emit(current_mode, mode)
+	await get_tree().create_timer(MODE_SWITCH_DURATION).timeout
+	end_transition.emit()
+
 	current_mode = mode
 	mode_changed.emit(mode)
 	if mode == GameMode.RACING:

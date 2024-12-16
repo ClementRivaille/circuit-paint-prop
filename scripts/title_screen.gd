@@ -10,13 +10,11 @@ func _ready() -> void:
 func start_game():
 	GameStore.next_level()
 	GameStore.change_mode(Store.GameMode.PAINTING)
-	visible = false
 
 func _on_start_btn_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.is_pressed():
 		start_game() # Replace with function body.
 
 func on_mode_change(mode: Store.GameMode):
-	if mode == Store.GameMode.TITLE:
-		thanks.visible = true
-		visible = true
+	visible = mode == Store.GameMode.TITLE
+	thanks.visible = true
