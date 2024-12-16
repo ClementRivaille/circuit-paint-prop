@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://6eomamaydfsf"]
+[gd_scene load_steps=11 format=3 uid="uid://6eomamaydfsf"]
 
 [ext_resource type="Texture2D" uid="uid://bdnswsp8iesm6" path="res://assets/sprites/logo.png" id="1_b0r4i"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_ulkgh"]
 [ext_resource type="Texture2D" uid="uid://4ri33kq3x1v8" path="res://assets/sprites/strip_alpha_large.png" id="2_sfys2"]
 [ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="3_aih8h"]
+[ext_resource type="Script" path="res://scripts/scrolling_stripe.gd" id="4_05of8"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="4_e4t6v"]
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="5_wfyug"]
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="6_ep788"]
@@ -47,12 +48,15 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0025
 anchor_top = 0.0401786
-anchor_right = 1.0025
+anchor_right = 1.015
 anchor_bottom = 0.129179
 offset_right = -1.0
 offset_bottom = 0.0639992
 texture = ExtResource("2_sfys2")
 stretch_mode = 1
+script = ExtResource("4_05of8")
+scroll_px = -4
+loop_duration = 0.3
 metadata/_edit_use_anchors_ = true
 
 [node name="Stripe2" type="TextureRect" parent="."]
@@ -60,6 +64,7 @@ modulate = Color(1, 1, 1, 0.568627)
 texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -0.0125
 anchor_top = 0.526786
 anchor_right = 1.005
 anchor_bottom = 0.615786
@@ -67,6 +72,8 @@ offset_right = -1.0
 offset_bottom = 0.0639992
 texture = ExtResource("2_sfys2")
 stretch_mode = 1
+script = ExtResource("4_05of8")
+loop_duration = 0.3
 metadata/_edit_use_anchors_ = true
 
 [node name="StartBtn" type="NinePatchRect" parent="."]
