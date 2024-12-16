@@ -4,7 +4,6 @@ class_name PaintingCanva
 signal mouse_entered
 signal mouse_exited
 
-@export var brush_radius: int =10
 @onready var level_canva: TileMapLayer = $LevelCanva
 
 func _ready() -> void:
@@ -14,7 +13,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (GameStore.painting):
 		var cursor_pos := GameStore.get_position_on_map(GameStore.cursor_position)
-		paint_circle(cursor_pos.x, cursor_pos.y, brush_radius)
+		paint_circle(cursor_pos.x, cursor_pos.y, GameStore.brush_size)
 
 func paint_circle(cx: int, cy: int, r: int):
 	# Midpoint circle algorithm

@@ -6,7 +6,8 @@ extends AudioStreamPlayer
 
 func _ready() -> void:
 	GameStore.painting_change.connect(play_brush_sound)
-	GameStore.color_changed.connect(on_color_change)
+	GameStore.color_changed.connect(on_brush_change)
+	GameStore.brush_changed.connect(on_brush_change)
 	GameStore.start_grab.connect(on_grab)
 	GameStore.item_dropped.connect(on_drop)
 
@@ -16,7 +17,7 @@ func play_brush_sound(active: bool):
 	else:
 		stop()
 
-func on_color_change(_color):
+func on_brush_change(_color):
 	pick_color.play()
 func on_grab():
 	grab.play()

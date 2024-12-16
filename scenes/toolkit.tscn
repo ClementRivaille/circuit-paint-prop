@@ -1,0 +1,197 @@
+[gd_scene load_steps=16 format=3 uid="uid://clt4rkr50tsqw"]
+
+[ext_resource type="Script" path="res://scripts/toolkit.gd" id="1_m50lb"]
+[ext_resource type="PackedScene" uid="uid://d0fdctfj4c7e6" path="res://scenes/color_select.tscn" id="2_up3uu"]
+[ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="3_t7qyx"]
+[ext_resource type="Texture2D" uid="uid://cf3glhk42mskr" path="res://assets/sprites/icons/wall.png" id="4_5d15k"]
+[ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="5_ct2u6"]
+[ext_resource type="Texture2D" uid="uid://c07vsjt48qn40" path="res://assets/sprites/icons/ice.png" id="6_ag6e1"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="7_8fhbw"]
+[ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="8_srhhw"]
+[ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="9_y8afm"]
+[ext_resource type="Script" path="res://scripts/racing_button.gd" id="10_6f3fm"]
+[ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="11_6dt1e"]
+[ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="12_2ex8i"]
+[ext_resource type="PackedScene" uid="uid://dmv1hj1il3acw" path="res://scenes/brush_picker.tscn" id="13_didrs"]
+[ext_resource type="Texture2D" uid="uid://sk1icvbctvwm" path="res://assets/sprites/ui/circle-md.png" id="14_sn2fg"]
+[ext_resource type="Texture2D" uid="uid://dnt7va0c5se38" path="res://assets/sprites/ui/circle-lg.png" id="15_uvfsa"]
+
+[node name="Toolkit" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 224.0
+mouse_filter = 2
+script = ExtResource("1_m50lb")
+metadata/_edit_lock_ = true
+
+[node name="ColorPicker" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 21.0
+offset_right = 84.0
+offset_bottom = 158.0
+theme_override_constants/separation = 7
+
+[node name="Road" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+layout_mode = 2
+color = Color(0.447059, 0.447059, 0.447059, 1)
+icon = ExtResource("3_t7qyx")
+text = "Road"
+
+[node name="Wall1" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+layout_mode = 2
+color = Color(0.917647, 0.0745098, 0.439216, 1)
+icon = ExtResource("4_5d15k")
+text = "Wall"
+tile = Vector2i(1, 0)
+
+[node name="Wall2" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+layout_mode = 2
+color = Color(0.156863, 0.772549, 0.74902, 1)
+icon = ExtResource("4_5d15k")
+tile = Vector2i(2, 0)
+
+[node name="Water" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+layout_mode = 2
+color = Color(0.364706, 0.294118, 0.87451, 1)
+icon = ExtResource("5_ct2u6")
+text = "Wet"
+tile = Vector2i(0, 1)
+
+[node name="Void" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+layout_mode = 2
+color = Color(0.847059, 0.827451, 0.964706, 1)
+icon = ExtResource("6_ag6e1")
+text = "Ice"
+tile = Vector2i(1, 1)
+
+[node name="Debug" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 313.0
+offset_top = 107.0
+offset_right = 387.435
+offset_bottom = 193.88
+script = ExtResource("7_8fhbw")
+
+[node name="Console" type="Label" parent="Debug"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_srhhw")
+theme_override_font_sizes/font_size = 8
+text = "debug"
+
+[node name="RaceButton" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 314.0
+offset_top = 175.0
+offset_right = 392.55
+offset_bottom = 203.88
+mouse_filter = 1
+texture = ExtResource("9_y8afm")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("10_6f3fm")
+disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
+
+[node name="Label" type="Label" parent="RaceButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
+theme_override_fonts/font = ExtResource("11_6dt1e")
+theme_override_font_sizes/font_size = 26
+text = "Race"
+
+[node name="TextureRect" type="TextureRect" parent="RaceButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_bottom = 1.0
+texture = ExtResource("12_2ex8i")
+stretch_mode = 3
+
+[node name="Instructions" type="Label" parent="RaceButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.484
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0182
+offset_top = 1.12
+offset_right = 48.725
+offset_bottom = 16.12
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("8_srhhw")
+theme_override_font_sizes/font_size = 8
+text = "Get to all checkpoints and reach the goal"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemsInstructions" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 49.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("11_6dt1e")
+theme_override_font_sizes/font_size = 13
+text = "Place these on the track:"
+autowrap_mode = 3
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.764706, 0.792157, 0.627451, 1)
+metadata/_edit_lock_ = true
+
+[node name="BrushSizes" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 168.0
+offset_right = 121.0
+offset_bottom = 200.0
+theme_override_constants/separation = 8
+
+[node name="SmallPick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+layout_mode = 2
+brush_size = 3
+
+[node name="MediumPick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+layout_mode = 2
+texture = ExtResource("14_sn2fg")
+
+[node name="LargePick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+layout_mode = 2
+texture = ExtResource("15_uvfsa")
+brush_size = 12
+
+[connection signal="gui_input" from="RaceButton" to="RaceButton" method="on_input"]

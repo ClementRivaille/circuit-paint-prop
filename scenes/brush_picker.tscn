@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmv1hj1il3acw"]
+
+[ext_resource type="Texture2D" uid="uid://dqaa7pmjgrntu" path="res://assets/sprites/ui/circle-sm.png" id="1_fdq5o"]
+[ext_resource type="Script" path="res://scripts/brush_picker.gd" id="2_vrp0m"]
+
+[node name="BrushPicker" type="TextureRect"]
+texture = ExtResource("1_fdq5o")
+stretch_mode = 3
+script = ExtResource("2_vrp0m")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

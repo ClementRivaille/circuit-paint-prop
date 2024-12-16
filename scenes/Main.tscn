@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene load_steps=50 format=3 uid="uid://b6idp1aittwg"]
 
 [ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
@@ -6,25 +6,16 @@
 [ext_resource type="Script" path="res://scripts/cursor_manager.gd" id="3_qabto"]
 [ext_resource type="Texture2D" uid="uid://c7yrn5dac0q8c" path="res://assets/sprites/cursor/cursor.png" id="4_f6ifv"]
 [ext_resource type="Texture2D" uid="uid://cxmhxws27b0tu" path="res://assets/sprites/cursor/paint.png" id="6_s3s6i"]
-[ext_resource type="PackedScene" uid="uid://d0fdctfj4c7e6" path="res://scenes/color_select.tscn" id="7_gy87y"]
+[ext_resource type="PackedScene" uid="uid://clt4rkr50tsqw" path="res://scenes/toolkit.tscn" id="7_1egwb"]
 [ext_resource type="Texture2D" uid="uid://c4maxrtwlrcyf" path="res://assets/sprites/cursor/grab.png" id="7_qwu64"]
 [ext_resource type="Texture2D" uid="uid://0fm5a3au45fk" path="res://assets/sprites/cursor/drag.png" id="8_uftn5"]
-[ext_resource type="Texture2D" uid="uid://cf3glhk42mskr" path="res://assets/sprites/icons/wall.png" id="9_2usq4"]
-[ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="9_sof8g"]
-[ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="10_2oa1c"]
 [ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
-[ext_resource type="Script" path="res://scripts/toolkit.gd" id="13_7ymmt"]
-[ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="14_crts4"]
-[ext_resource type="Script" path="res://scripts/debug.gd" id="14_nfme0"]
 [ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="15_a8064"]
 [ext_resource type="Script" path="res://scripts/items_placement.gd" id="16_vo2po"]
-[ext_resource type="Texture2D" uid="uid://c07vsjt48qn40" path="res://assets/sprites/icons/ice.png" id="17_ba1ti"]
 [ext_resource type="Script" path="res://scripts/switch_button.gd" id="17_drn1v"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
-[ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="18_kw523"]
 [ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
 [ext_resource type="Texture2D" uid="uid://mxt230mh2bag" path="res://assets/sprites/ui/prompt-box.png" id="24_lyn0d"]
-[ext_resource type="Script" path="res://scripts/racing_button.gd" id="25_85kf8"]
 [ext_resource type="Script" path="res://scripts/prompt.gd" id="25_rbiyc"]
 [ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
@@ -143,162 +134,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Toolkit" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 400.0
-offset_bottom = 224.0
-mouse_filter = 2
-script = ExtResource("13_7ymmt")
-metadata/_edit_lock_ = true
-
-[node name="ColorPicker" type="VBoxContainer" parent="Toolkit"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 21.0
-offset_right = 84.3
-offset_bottom = 197.57
-theme_override_constants/separation = 7
-
-[node name="Road" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
-layout_mode = 2
-color = Color(0.447059, 0.447059, 0.447059, 1)
-icon = ExtResource("9_sof8g")
-text = "Road"
-
-[node name="Wall1" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
-layout_mode = 2
-color = Color(0.917647, 0.0745098, 0.439216, 1)
-icon = ExtResource("9_2usq4")
-text = "Wall"
-tile = Vector2i(1, 0)
-
-[node name="Wall2" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
-layout_mode = 2
-color = Color(0.156863, 0.772549, 0.74902, 1)
-icon = ExtResource("9_2usq4")
-tile = Vector2i(2, 0)
-
-[node name="Water" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
-layout_mode = 2
-color = Color(0.364706, 0.294118, 0.87451, 1)
-icon = ExtResource("10_2oa1c")
-text = "Wet"
-tile = Vector2i(0, 1)
-
-[node name="Void" parent="Toolkit/ColorPicker" instance=ExtResource("7_gy87y")]
-layout_mode = 2
-color = Color(0.847059, 0.827451, 0.964706, 1)
-icon = ExtResource("17_ba1ti")
-text = "Ice"
-tile = Vector2i(1, 1)
-
-[node name="Debug" type="Control" parent="Toolkit"]
-visible = false
-anchors_preset = 0
-offset_left = 313.0
-offset_top = 107.0
-offset_right = 387.435
-offset_bottom = 193.88
-script = ExtResource("14_nfme0")
-
-[node name="Console" type="Label" parent="Toolkit/Debug"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("14_crts4")
-theme_override_font_sizes/font_size = 8
-text = "debug"
-
-[node name="RaceButton" type="NinePatchRect" parent="Toolkit"]
-self_modulate = Color(0.8, 0.231373, 0.231373, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 314.0
-offset_top = 175.0
-offset_right = 392.55
-offset_bottom = 203.88
-mouse_filter = 1
-texture = ExtResource("15_a8064")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-script = ExtResource("25_85kf8")
-disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
-
-[node name="Label" type="Label" parent="Toolkit/RaceButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme_override_colors/font_color = Color(0, 0, 0, 0.713726)
-theme_override_fonts/font = ExtResource("17_kbh25")
-theme_override_font_sizes/font_size = 26
-text = "Race"
-
-[node name="TextureRect" type="TextureRect" parent="Toolkit/RaceButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.35
-anchor_bottom = 1.0
-offset_bottom = 1.0
-texture = ExtResource("18_kw523")
-stretch_mode = 3
-
-[node name="Instructions" type="Label" parent="Toolkit/RaceButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.484
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -50.0182
-offset_top = 1.12
-offset_right = 48.725
-offset_bottom = 16.12
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
-theme_override_constants/line_spacing = -3
-theme_override_fonts/font = ExtResource("14_crts4")
-theme_override_font_sizes/font_size = 8
-text = "Get to all checkpoints and reach the goal"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="ItemsInstructions" type="Label" parent="Toolkit"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_top = 7.0
-offset_right = -5.0
-offset_bottom = 49.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
-theme_override_constants/line_spacing = -3
-theme_override_fonts/font = ExtResource("17_kbh25")
-theme_override_font_sizes/font_size = 13
-text = "Place these on the track:"
-autowrap_mode = 3
-
-[node name="background" type="ColorRect" parent="Toolkit"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.764706, 0.792157, 0.627451, 1)
-metadata/_edit_lock_ = true
+[node name="Toolkit" parent="." instance=ExtResource("7_1egwb")]
 
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("16_vo2po")
@@ -660,6 +496,5 @@ script = ExtResource("56_g8cqi")
 
 [connection signal="mouse_entered" from="Canva" to="StaticUI/CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva" to="StaticUI/CursorManager" method="exit_canva"]
-[connection signal="gui_input" from="Toolkit/RaceButton" to="Toolkit/RaceButton" method="on_input"]
 [connection signal="gui_input" from="Results/RestartBtn" to="Results/RestartBtn" method="on_input"]
 [connection signal="gui_input" from="Results/NextLevelBtn" to="Results/NextLevelBtn" method="on_input"]

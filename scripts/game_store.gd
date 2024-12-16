@@ -3,6 +3,7 @@ class_name Store
 
 signal painting_change(p: bool)
 signal color_changed(color: Vector2i)
+signal brush_changed(size: int)
 signal start_grab
 signal hover_grab
 signal exit_grab
@@ -45,6 +46,11 @@ var selected_color: Vector2i = Vector2i(0,0):
 func set_selected_color(tile: Vector2i):
 	selected_color = tile
 	color_changed.emit(selected_color)
+
+var brush_size: int = 6: set = set_brush_size
+func set_brush_size(size: int):
+	brush_size = size
+	brush_changed.emit(size)
 
 var dragging := false
 var hovering_grab := false
