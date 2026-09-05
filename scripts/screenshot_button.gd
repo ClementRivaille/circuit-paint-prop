@@ -6,7 +6,6 @@ class_name ScreenshotButton
 
 func on_input(event: InputEvent):
 	if event is InputEventMouseButton && event.is_pressed():
-		print("clicked")
 		var top_left := Vector2(
 			GameStore.tilemap_position.x - GameStore.CANVA_DIMENSIONS.x / 2,
 			GameStore.tilemap_position.y - GameStore.CANVA_DIMENSIONS.y / 2,)
@@ -16,4 +15,13 @@ func on_input(event: InputEvent):
 		var screenshot := get_viewport().get_texture().get_image().get_region(screen_region)
 
 		screenshot.resize(region.x * img_scale, region.y * img_scale, Image.INTERPOLATE_NEAREST)
-		screenshot.save_png("res://dist/screenshot.png")
+
+		var filename := GameStore.current_level.prompt.replacen(" ", "_").to_lower()
+
+		# Debug ONLY
+		# screenshot.save_png("res://dist/screenshot.png")
+		download_file(screenshot, filename)
+
+func download_file(img: Image, filename: String) -> void:
+	var buf := img.save_png_to_buffer()
+	JavaScriptBridge.download_buffer(buf, filename+".png")
