@@ -1,22 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://clt4rkr50tsqw"]
+[gd_scene format=3 uid="uid://clt4rkr50tsqw"]
 
-[ext_resource type="Script" path="res://scripts/toolkit.gd" id="1_m50lb"]
+[ext_resource type="Script" uid="uid://4q2kc314c0dq" path="res://scripts/toolkit.gd" id="1_m50lb"]
 [ext_resource type="PackedScene" uid="uid://d0fdctfj4c7e6" path="res://scenes/color_select.tscn" id="2_up3uu"]
 [ext_resource type="Texture2D" uid="uid://dfsqaticpwi8t" path="res://assets/sprites/icons/wheel.png" id="3_t7qyx"]
 [ext_resource type="Texture2D" uid="uid://cf3glhk42mskr" path="res://assets/sprites/icons/wall.png" id="4_5d15k"]
 [ext_resource type="Texture2D" uid="uid://bkskkbr1ygdqq" path="res://assets/sprites/icons/mud.png" id="5_ct2u6"]
 [ext_resource type="Texture2D" uid="uid://c07vsjt48qn40" path="res://assets/sprites/icons/ice.png" id="6_ag6e1"]
-[ext_resource type="Script" path="res://scripts/debug.gd" id="7_8fhbw"]
+[ext_resource type="Script" uid="uid://b4davggmfvuvm" path="res://scripts/debug.gd" id="7_8fhbw"]
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="8_srhhw"]
 [ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="9_y8afm"]
-[ext_resource type="Script" path="res://scripts/racing_button.gd" id="10_6f3fm"]
+[ext_resource type="Script" uid="uid://bjir4jvs0un1t" path="res://scripts/racing_button.gd" id="10_6f3fm"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="11_6dt1e"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="12_2ex8i"]
 [ext_resource type="PackedScene" uid="uid://dmv1hj1il3acw" path="res://scenes/brush_picker.tscn" id="13_didrs"]
 [ext_resource type="Texture2D" uid="uid://sk1icvbctvwm" path="res://assets/sprites/ui/circle-md.png" id="14_sn2fg"]
 [ext_resource type="Texture2D" uid="uid://dnt7va0c5se38" path="res://assets/sprites/ui/circle-lg.png" id="15_uvfsa"]
 
-[node name="Toolkit" type="Control"]
+[node name="Toolkit" type="Control" unique_id=1346438615]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
@@ -25,7 +25,7 @@ mouse_filter = 2
 script = ExtResource("1_m50lb")
 metadata/_edit_lock_ = true
 
-[node name="ColorPicker" type="VBoxContainer" parent="."]
+[node name="ColorPicker" type="VBoxContainer" parent="." unique_id=1852853824]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 21.0
@@ -33,35 +33,36 @@ offset_right = 84.0
 offset_bottom = 158.0
 theme_override_constants/separation = 7
 
-[node name="Road" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+[node name="Road" parent="ColorPicker" unique_id=1787511113 instance=ExtResource("2_up3uu")]
 layout_mode = 2
 icon = ExtResource("3_t7qyx")
 text = "Road"
 
-[node name="Wall1" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+[node name="Wall1" parent="ColorPicker" unique_id=417037791 instance=ExtResource("2_up3uu")]
 layout_mode = 2
 icon = ExtResource("4_5d15k")
-text = "Wall"
+text = "Wall 1"
 tile = Vector2i(1, 0)
 
-[node name="Wall2" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+[node name="Wall2" parent="ColorPicker" unique_id=1756523603 instance=ExtResource("2_up3uu")]
 layout_mode = 2
 icon = ExtResource("4_5d15k")
+text = "Wall 2"
 tile = Vector2i(2, 0)
 
-[node name="Water" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+[node name="Water" parent="ColorPicker" unique_id=1348537360 instance=ExtResource("2_up3uu")]
 layout_mode = 2
 icon = ExtResource("5_ct2u6")
 text = "Wet"
 tile = Vector2i(0, 1)
 
-[node name="Void" parent="ColorPicker" instance=ExtResource("2_up3uu")]
+[node name="Void" parent="ColorPicker" unique_id=291196961 instance=ExtResource("2_up3uu")]
 layout_mode = 2
 icon = ExtResource("6_ag6e1")
 text = "Ice"
 tile = Vector2i(1, 1)
 
-[node name="Debug" type="Control" parent="."]
+[node name="Debug" type="Control" parent="." unique_id=1249453846]
 visible = false
 anchors_preset = 0
 offset_left = 313.0
@@ -70,7 +71,7 @@ offset_right = 387.435
 offset_bottom = 193.88
 script = ExtResource("7_8fhbw")
 
-[node name="Console" type="Label" parent="Debug"]
+[node name="Console" type="Label" parent="Debug" unique_id=1215862756]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -82,7 +83,7 @@ theme_override_fonts/font = ExtResource("8_srhhw")
 theme_override_font_sizes/font_size = 8
 text = "debug"
 
-[node name="RaceButton" type="NinePatchRect" parent="."]
+[node name="RaceButton" type="NinePatchRect" parent="." unique_id=1159671461]
 self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 texture_filter = 1
 layout_mode = 0
@@ -99,7 +100,7 @@ patch_margin_bottom = 5
 script = ExtResource("10_6f3fm")
 disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
 
-[node name="Label" type="Label" parent="RaceButton"]
+[node name="Label" type="Label" parent="RaceButton" unique_id=288272026]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -110,7 +111,7 @@ theme_override_fonts/font = ExtResource("11_6dt1e")
 theme_override_font_sizes/font_size = 26
 text = "Race"
 
-[node name="TextureRect" type="TextureRect" parent="RaceButton"]
+[node name="TextureRect" type="TextureRect" parent="RaceButton" unique_id=1300040840]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.35
@@ -119,7 +120,7 @@ offset_bottom = 1.0
 texture = ExtResource("12_2ex8i")
 stretch_mode = 3
 
-[node name="Instructions" type="Label" parent="RaceButton"]
+[node name="Instructions" type="Label" parent="RaceButton" unique_id=1162082639]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.484
@@ -139,7 +140,7 @@ text = "Get to all checkpoints and reach the goal"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ItemsInstructions" type="Label" parent="."]
+[node name="ItemsInstructions" type="Label" parent="." unique_id=755856505]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -156,7 +157,7 @@ theme_override_font_sizes/font_size = 13
 text = "Place these on the track:"
 autowrap_mode = 3
 
-[node name="background" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="." unique_id=348961169]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -168,7 +169,7 @@ mouse_filter = 2
 color = Color(0.764706, 0.792157, 0.627451, 1)
 metadata/_edit_lock_ = true
 
-[node name="BrushSizes" type="HBoxContainer" parent="."]
+[node name="BrushSizes" type="HBoxContainer" parent="." unique_id=361390617]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 168.0
@@ -176,15 +177,15 @@ offset_right = 121.0
 offset_bottom = 200.0
 theme_override_constants/separation = 8
 
-[node name="SmallPick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+[node name="SmallPick" parent="BrushSizes" unique_id=1150024974 instance=ExtResource("13_didrs")]
 layout_mode = 2
 brush_size = 3
 
-[node name="MediumPick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+[node name="MediumPick" parent="BrushSizes" unique_id=1692512490 instance=ExtResource("13_didrs")]
 layout_mode = 2
 texture = ExtResource("14_sn2fg")
 
-[node name="LargePick" parent="BrushSizes" instance=ExtResource("13_didrs")]
+[node name="LargePick" parent="BrushSizes" unique_id=640626562 instance=ExtResource("13_didrs")]
 layout_mode = 2
 texture = ExtResource("15_uvfsa")
 brush_size = 12
