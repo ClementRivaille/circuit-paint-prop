@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkjgtbowhcmvl"]
+[gd_scene format=3 uid="uid://bkjgtbowhcmvl"]
 
-[ext_resource type="Script" path="res://scripts/results.gd" id="1_yruwr"]
+[ext_resource type="Script" uid="uid://s3uo07oxpbhu" path="res://scripts/results.gd" id="1_yruwr"]
 [ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="2_h5g3t"]
 [ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="3_dwpm6"]
-[ext_resource type="Script" path="res://scripts/switch_button.gd" id="4_tpk7w"]
+[ext_resource type="Script" uid="uid://x1rn0dbylmyg" path="res://scripts/switch_button.gd" id="4_tpk7w"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="5_0jihc"]
 [ext_resource type="Texture2D" uid="uid://bhwvwgfdehl3q" path="res://assets/sprites/icons/chrono.png" id="6_65tv7"]
 [ext_resource type="Texture2D" uid="uid://doamwweysdec2" path="res://assets/sprites/ui/dialog-box.png" id="7_kidc5"]
+[ext_resource type="Script" uid="uid://b4kq3vraa458f" path="res://scripts/screenshot_button.gd" id="8_00qb5"]
 [ext_resource type="Texture2D" uid="uid://de2ssopx4ib6p" path="res://assets/sprites/icons/screen.png" id="8_wr5rk"]
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="9_ox1q7"]
-[ext_resource type="Script" path="res://scripts/end_button.gd" id="10_m2rs3"]
+[ext_resource type="Script" uid="uid://21uvlqflpew4" path="res://scripts/end_button.gd" id="10_m2rs3"]
 
-[node name="Results" type="Control"]
+[node name="Results" type="Control" unique_id=592892704]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_yruwr")
 metadata/_edit_lock_ = true
 
-[node name="Time" type="Label" parent="."]
+[node name="Time" type="Label" parent="." unique_id=243345702]
 layout_mode = 0
 offset_top = 23.0
 offset_right = 100.0
@@ -34,7 +35,7 @@ theme_override_font_sizes/font_size = 16
 text = "00:00.000"
 horizontal_alignment = 1
 
-[node name="RestartBtn" type="NinePatchRect" parent="."]
+[node name="RestartBtn" type="NinePatchRect" parent="." unique_id=1241120477]
 self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 texture_filter = 1
 layout_mode = 0
@@ -51,7 +52,7 @@ patch_margin_bottom = 5
 script = ExtResource("4_tpk7w")
 to_mode = 0
 
-[node name="Label" type="Label" parent="RestartBtn"]
+[node name="Label" type="Label" parent="RestartBtn" unique_id=1248564141]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -65,7 +66,7 @@ theme_override_font_sizes/font_size = 13
 text = "Try again"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="RestartBtn"]
+[node name="TextureRect" type="TextureRect" parent="RestartBtn" unique_id=1127537495]
 modulate = Color(1, 1, 1, 0.776471)
 layout_mode = 1
 anchors_preset = -1
@@ -75,19 +76,22 @@ offset_bottom = 1.0
 texture = ExtResource("6_65tv7")
 stretch_mode = 3
 
-[node name="Screenshot" type="NinePatchRect" parent="."]
+[node name="Screenshot" type="NinePatchRect" parent="." unique_id=1942009454]
 layout_mode = 0
 offset_left = 315.0
 offset_top = 11.0
 offset_right = 388.0
-offset_bottom = 68.0
+offset_bottom = 56.0
+mouse_filter = 1
 texture = ExtResource("7_kidc5")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+script = ExtResource("8_00qb5")
+title_height = 23
 
-[node name="Label" type="Label" parent="Screenshot"]
+[node name="Label" type="Label" parent="Screenshot" unique_id=113872268]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -100,11 +104,11 @@ grow_horizontal = 2
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("5_0jihc")
 theme_override_font_sizes/font_size = 13
-text = "Share a screenshot!"
+text = "Save drawing"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="icon" type="TextureRect" parent="Screenshot"]
+[node name="icon" type="TextureRect" parent="Screenshot" unique_id=1801262823]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5625
@@ -118,7 +122,7 @@ grow_vertical = 0
 texture = ExtResource("8_wr5rk")
 stretch_mode = 3
 
-[node name="NextLevelBtn" type="NinePatchRect" parent="."]
+[node name="NextLevelBtn" type="NinePatchRect" parent="." unique_id=847537726]
 self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 texture_filter = 1
 layout_mode = 0
@@ -136,7 +140,7 @@ script = ExtResource("4_tpk7w")
 to_mode = 0
 next_level = true
 
-[node name="Label" type="Label" parent="NextLevelBtn"]
+[node name="Label" type="Label" parent="NextLevelBtn" unique_id=504341005]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -150,7 +154,7 @@ theme_override_font_sizes/font_size = 13
 text = "Next level"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="NextLevelBtn"]
+[node name="TextureRect" type="TextureRect" parent="NextLevelBtn" unique_id=264180228]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.35
@@ -159,7 +163,7 @@ offset_bottom = 1.0
 texture = ExtResource("9_ox1q7")
 stretch_mode = 3
 
-[node name="EndBtn" type="NinePatchRect" parent="."]
+[node name="EndBtn" type="NinePatchRect" parent="." unique_id=1036328463]
 self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 texture_filter = 1
 layout_mode = 0
@@ -175,7 +179,7 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 script = ExtResource("10_m2rs3")
 
-[node name="Label" type="Label" parent="EndBtn"]
+[node name="Label" type="Label" parent="EndBtn" unique_id=162803707]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00534689
@@ -191,7 +195,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="background" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="." unique_id=1738222882]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -204,5 +208,6 @@ color = Color(0.367212, 0.581464, 0.456976, 1)
 metadata/_edit_lock_ = true
 
 [connection signal="gui_input" from="RestartBtn" to="RestartBtn" method="on_input"]
+[connection signal="gui_input" from="Screenshot" to="Screenshot" method="on_input"]
 [connection signal="gui_input" from="NextLevelBtn" to="NextLevelBtn" method="on_input"]
 [connection signal="gui_input" from="EndBtn" to="EndBtn" method="on_input"]

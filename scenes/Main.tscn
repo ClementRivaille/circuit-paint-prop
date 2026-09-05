@@ -1,53 +1,53 @@
-[gd_scene load_steps=50 format=3 uid="uid://b6idp1aittwg"]
+[gd_scene format=3 uid="uid://b6idp1aittwg"]
 
-[ext_resource type="Script" path="res://scripts/paint_camera.gd" id="1_f3075"]
+[ext_resource type="Script" uid="uid://ctgr802perid7" path="res://scripts/paint_camera.gd" id="1_f3075"]
 [ext_resource type="PackedScene" uid="uid://5q6xyekrnr3d" path="res://scenes/kart.tscn" id="2_4r1ug"]
 [ext_resource type="PackedScene" uid="uid://hsge0fqynndm" path="res://scenes/canva.tscn" id="3_osf88"]
-[ext_resource type="Script" path="res://scripts/cursor_manager.gd" id="3_qabto"]
+[ext_resource type="Script" uid="uid://ma1dm63lilpw" path="res://scripts/cursor_manager.gd" id="3_qabto"]
 [ext_resource type="Texture2D" uid="uid://c7yrn5dac0q8c" path="res://assets/sprites/cursor/cursor.png" id="4_f6ifv"]
 [ext_resource type="Texture2D" uid="uid://cxmhxws27b0tu" path="res://assets/sprites/cursor/paint.png" id="6_s3s6i"]
 [ext_resource type="PackedScene" uid="uid://clt4rkr50tsqw" path="res://scenes/toolkit.tscn" id="7_1egwb"]
 [ext_resource type="Texture2D" uid="uid://c4maxrtwlrcyf" path="res://assets/sprites/cursor/grab.png" id="7_qwu64"]
 [ext_resource type="Texture2D" uid="uid://0fm5a3au45fk" path="res://assets/sprites/cursor/drag.png" id="8_uftn5"]
 [ext_resource type="PackedScene" uid="uid://becsavtygatmv" path="res://scenes/track_item.tscn" id="12_vgk8r"]
-[ext_resource type="Script" path="res://scripts/items_placement.gd" id="16_vo2po"]
+[ext_resource type="Script" uid="uid://cm1k16a7cb4qr" path="res://scripts/items_placement.gd" id="16_vo2po"]
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="17_kbh25"]
-[ext_resource type="Script" path="res://scripts/racing_ui.gd" id="22_x074b"]
-[ext_resource type="Script" path="res://scripts/transition_layer.gd" id="23_erdug"]
+[ext_resource type="Script" uid="uid://cudbygrfm82os" path="res://scripts/racing_ui.gd" id="22_x074b"]
+[ext_resource type="Script" uid="uid://dp7ulrd5tjvyp" path="res://scripts/transition_layer.gd" id="23_erdug"]
 [ext_resource type="Texture2D" uid="uid://mxt230mh2bag" path="res://assets/sprites/ui/prompt-box.png" id="24_lyn0d"]
-[ext_resource type="Script" path="res://scripts/prompt.gd" id="25_rbiyc"]
-[ext_resource type="Script" path="res://scripts/item_validation.gd" id="26_i76g3"]
+[ext_resource type="Script" uid="uid://bhxau7ee8rird" path="res://scripts/prompt.gd" id="25_rbiyc"]
+[ext_resource type="Script" uid="uid://dc741q81tnpd4" path="res://scripts/item_validation.gd" id="26_i76g3"]
 [ext_resource type="Texture2D" uid="uid://bo455ptlrmhua" path="res://assets/sprites/mini-flag.png" id="27_domar"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="28_4v086"]
 [ext_resource type="PackedScene" uid="uid://bkjgtbowhcmvl" path="res://scenes/results.tscn" id="28_dkdwj"]
 [ext_resource type="Resource" uid="uid://b4widlcy26cbn" path="res://levels/level_3.tres" id="28_h3q5v"]
 [ext_resource type="Resource" uid="uid://c74rumik8p0g7" path="res://levels/level_4.tres" id="29_6jfpj"]
 [ext_resource type="Resource" uid="uid://be8igvvqsk8io" path="res://levels/level_5.tres" id="30_0jcsa"]
-[ext_resource type="Script" path="res://scripts/chrono.gd" id="30_4lnnx"]
+[ext_resource type="Script" uid="uid://bejf18817qcnk" path="res://scripts/chrono.gd" id="30_4lnnx"]
 [ext_resource type="Texture2D" uid="uid://c4lqrhghx8jlq" path="res://assets/sprites/ui/chrono-box.png" id="30_ro0ov"]
-[ext_resource type="Script" path="res://scripts/chrono_display.gd" id="31_s3r12"]
+[ext_resource type="Script" uid="uid://dlm3p5vrgnqeb" path="res://scripts/chrono_display.gd" id="31_s3r12"]
 [ext_resource type="PackedScene" uid="uid://6eomamaydfsf" path="res://scenes/title_screen.tscn" id="32_i6gei"]
 [ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="32_j30o2"]
-[ext_resource type="Script" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
-[ext_resource type="Script" path="res://scripts/level.gd" id="36_evuqn"]
+[ext_resource type="Script" uid="uid://brwb3mbs4uux" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
+[ext_resource type="Script" uid="uid://dl13mslfd8gwq" path="res://scripts/level.gd" id="36_evuqn"]
 [ext_resource type="Resource" uid="uid://cvn7sb3r4kkjg" path="res://levels/level_1.tres" id="37_e4ogq"]
 [ext_resource type="Resource" uid="uid://b11dqulq4qtxc" path="res://levels/level_2.tres" id="40_76np2"]
 [ext_resource type="AudioStream" uid="uid://dt4dbglhs4jy6" path="res://assets/sfx/brush.ogg" id="43_j64u1"]
-[ext_resource type="Script" path="res://scripts/painting_sounds.gd" id="44_idtvv"]
+[ext_resource type="Script" uid="uid://dwouuqvn0ni66" path="res://scripts/painting_sounds.gd" id="44_idtvv"]
 [ext_resource type="AudioStream" uid="uid://bhuw12mxsyjb3" path="res://assets/sfx/select-color.wav" id="45_rsy6l"]
 [ext_resource type="AudioStream" uid="uid://ch4xpxmuowrex" path="res://assets/sfx/grab.wav" id="46_xginj"]
 [ext_resource type="AudioStream" uid="uid://db7aoct3vrgnl" path="res://assets/sfx/drop.wav" id="47_o2l5o"]
-[ext_resource type="Script" path="res://scripts/racing_sounds.gd" id="48_ddcwe"]
+[ext_resource type="Script" uid="uid://cbbg2xl2tlal5" path="res://scripts/racing_sounds.gd" id="48_ddcwe"]
 [ext_resource type="AudioStream" uid="uid://cxif4vgu67sdt" path="res://assets/sfx/checkpoint.wav" id="49_p0x5b"]
 [ext_resource type="AudioStream" uid="uid://13i3to1vmti8" path="res://assets/sfx/victory.wav" id="50_b3hrv"]
-[ext_resource type="Script" path="res://scripts/switch_scene_sfx.gd" id="51_gbof7"]
+[ext_resource type="Script" uid="uid://c3d8tsey5runb" path="res://scripts/switch_scene_sfx.gd" id="51_gbof7"]
 [ext_resource type="AudioStream" uid="uid://vt6e7vf67m34" path="res://assets/sfx/switch_scene.wav" id="52_45ch7"]
 [ext_resource type="AudioStream" uid="uid://obh2ftpi2jbw" path="res://assets/music/cpp_title.ogg" id="52_crh3i"]
 [ext_resource type="AudioStream" uid="uid://ql5mghs7ch6g" path="res://assets/sfx/back.wav" id="53_4aslk"]
 [ext_resource type="AudioStream" uid="uid://b5372o01lsg1" path="res://assets/music/cpp_results.ogg" id="53_v0rnj"]
 [ext_resource type="AudioStream" uid="uid://cj74iyjjkgxw7" path="res://assets/music/cpp_paint.ogg" id="54_mvb0q"]
 [ext_resource type="AudioStream" uid="uid://bdt0cbwyhjbwv" path="res://assets/music/cpp_race.ogg" id="55_wpued"]
-[ext_resource type="Script" path="res://scripts/music.gd" id="56_g8cqi"]
+[ext_resource type="Script" uid="uid://cma1dg5v0kfww" path="res://scripts/music.gd" id="56_g8cqi"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_idfxx"]
 clip_count = 4
@@ -65,56 +65,56 @@ clip_3/stream = ExtResource("53_v0rnj")
 clip_3/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 1
 },
 Vector2i(1, 1): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 0,
 "from_time": 0,
 "to_time": 0
 },
 Vector2i(1, 2): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 1
 },
 Vector2i(2, 1): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 0
 },
 Vector2i(2, 3): {
-"fade_beats": 2,
+"fade_beats": 2.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
 },
 Vector2i(3, 0): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 1
 },
 Vector2i(3, 1): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 1,
 "to_time": 1
 }
 }
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=102735873]
 
-[node name="PaintCamera" type="Camera2D" parent="."]
+[node name="PaintCamera" type="Camera2D" parent="." unique_id=1135464027]
 anchor_mode = 0
 script = ExtResource("1_f3075")
 
-[node name="Kart" parent="." instance=ExtResource("2_4r1ug")]
+[node name="Kart" parent="." unique_id=328212474 instance=ExtResource("2_4r1ug")]
 position = Vector2(200, 112)
 max_velocity = 45.0
 max_backward_celocity = 15.0
@@ -123,9 +123,9 @@ steer_force = 2.0
 deceleration = 30.0
 wet_max_velocity = 10.0
 
-[node name="Canva" parent="." instance=ExtResource("3_osf88")]
+[node name="Canva" parent="." unique_id=192001978 instance=ExtResource("3_osf88")]
 
-[node name="Prompt" type="NinePatchRect" parent="."]
+[node name="Prompt" type="NinePatchRect" parent="." unique_id=1515516742]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -143,7 +143,7 @@ patch_margin_right = 4
 patch_margin_bottom = 4
 script = ExtResource("25_rbiyc")
 
-[node name="Label" type="Label" parent="Prompt"]
+[node name="Label" type="Label" parent="Prompt" unique_id=157508678]
 modulate = Color(1, 1, 1, 0.878431)
 layout_mode = 1
 anchors_preset = -1
@@ -164,29 +164,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Toolkit" parent="." instance=ExtResource("7_1egwb")]
+[node name="Toolkit" parent="." unique_id=520770816 instance=ExtResource("7_1egwb")]
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=639493777]
 script = ExtResource("16_vo2po")
 cell_size = Vector2(32, 16)
 item_prefab = ExtResource("12_vgk8r")
 
-[node name="Start" parent="Items" instance=ExtResource("12_vgk8r")]
+[node name="Start" parent="Items" unique_id=1377646788 instance=ExtResource("12_vgk8r")]
 type = 0
 
-[node name="Goal" parent="Items" instance=ExtResource("12_vgk8r")]
+[node name="Goal" parent="Items" unique_id=146397228 instance=ExtResource("12_vgk8r")]
 type = 2
 
-[node name="SelectionTarget" type="Node2D" parent="Items"]
+[node name="SelectionTarget" type="Node2D" parent="Items" unique_id=1733852296]
 position = Vector2(327, 43)
 
-[node name="ItemValidation" type="Node2D" parent="Items"]
+[node name="ItemValidation" type="Node2D" parent="Items" unique_id=1135245772]
 script = ExtResource("26_i76g3")
 min_distance = 10
 
-[node name="StaticUI" type="CanvasLayer" parent="."]
+[node name="StaticUI" type="CanvasLayer" parent="." unique_id=103359882]
 
-[node name="RacingUI" type="Control" parent="StaticUI"]
+[node name="RacingUI" type="Control" parent="StaticUI" unique_id=216487643]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -198,7 +198,7 @@ script = ExtResource("22_x074b")
 checkpoint_complete_color = Color(0.2964, 0.411747, 0.289817, 1)
 metadata/_edit_lock_ = true
 
-[node name="Controls" type="Label" parent="StaticUI/RacingUI"]
+[node name="Controls" type="Label" parent="StaticUI/RacingUI" unique_id=1104925706]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -210,7 +210,7 @@ theme_override_fonts/font = ExtResource("17_kbh25")
 theme_override_font_sizes/font_size = 13
 text = "Tab: exit to canva"
 
-[node name="Checkpoints" type="Control" parent="StaticUI/RacingUI"]
+[node name="Checkpoints" type="Control" parent="StaticUI/RacingUI" unique_id=919617642]
 texture_filter = 1
 layout_mode = 1
 anchor_left = 0.9
@@ -220,7 +220,7 @@ offset_right = -4.0
 offset_bottom = 20.0
 grow_horizontal = 0
 
-[node name="Flag" type="TextureRect" parent="StaticUI/RacingUI/Checkpoints"]
+[node name="Flag" type="TextureRect" parent="StaticUI/RacingUI/Checkpoints" unique_id=692391165]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -229,7 +229,7 @@ anchor_bottom = 1.0
 texture = ExtResource("27_domar")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="StaticUI/RacingUI/Checkpoints"]
+[node name="Label" type="Label" parent="StaticUI/RacingUI/Checkpoints" unique_id=1127443841]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -244,7 +244,7 @@ text = "0/6"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Hero" type="Label" parent="StaticUI/RacingUI"]
+[node name="Hero" type="Label" parent="StaticUI/RacingUI" unique_id=1275037585]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -261,7 +261,7 @@ text = "FINISHED!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChronoDisplay" type="NinePatchRect" parent="StaticUI/RacingUI"]
+[node name="ChronoDisplay" type="NinePatchRect" parent="StaticUI/RacingUI" unique_id=1622628880]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -280,7 +280,7 @@ script = ExtResource("31_s3r12")
 finish_color = Color(0.796078, 0.878431, 0.168627, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="StaticUI/RacingUI/ChronoDisplay"]
+[node name="Label" type="Label" parent="StaticUI/RacingUI/ChronoDisplay" unique_id=371198909]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -298,9 +298,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TitleScreen" parent="StaticUI" instance=ExtResource("32_i6gei")]
+[node name="TitleScreen" parent="StaticUI" unique_id=1230274948 instance=ExtResource("32_i6gei")]
 
-[node name="CursorManager" type="Sprite2D" parent="StaticUI"]
+[node name="CursorManager" type="Sprite2D" parent="StaticUI" unique_id=1150105680]
 z_index = 3
 texture_filter = 1
 texture = ExtResource("4_f6ifv")
@@ -311,7 +311,7 @@ brush = ExtResource("6_s3s6i")
 grab_hover = ExtResource("7_qwu64")
 grabbing = ExtResource("8_uftn5")
 
-[node name="TransitionLayer" type="ColorRect" parent="StaticUI"]
+[node name="TransitionLayer" type="ColorRect" parent="StaticUI" unique_id=626038947]
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
@@ -319,60 +319,60 @@ color = Color(0.10354, 0.0192436, 0.153778, 1)
 script = ExtResource("23_erdug")
 metadata/_edit_use_anchors_ = true
 
-[node name="Chrono" type="Node2D" parent="."]
+[node name="Chrono" type="Node2D" parent="." unique_id=638426172]
 script = ExtResource("30_4lnnx")
 
-[node name="LevelsSelection" type="Node2D" parent="."]
+[node name="LevelsSelection" type="Node2D" parent="." unique_id=327227213]
 script = ExtResource("35_bl3x2")
 levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("28_h3q5v"), ExtResource("29_6jfpj"), ExtResource("30_0jcsa")])
 
-[node name="Results" parent="." instance=ExtResource("28_dkdwj")]
+[node name="Results" parent="." unique_id=495977069 instance=ExtResource("28_dkdwj")]
 
-[node name="PaintingSounds" type="AudioStreamPlayer" parent="."]
+[node name="PaintingSounds" type="AudioStreamPlayer" parent="." unique_id=710735736]
 stream = ExtResource("43_j64u1")
 bus = &"PaintSFX"
 script = ExtResource("44_idtvv")
 
-[node name="PickColor" type="AudioStreamPlayer" parent="PaintingSounds"]
+[node name="PickColor" type="AudioStreamPlayer" parent="PaintingSounds" unique_id=1565476250]
 stream = ExtResource("45_rsy6l")
 volume_db = 8.0
 bus = &"PaintSFX"
 
-[node name="Grab" type="AudioStreamPlayer" parent="PaintingSounds"]
+[node name="Grab" type="AudioStreamPlayer" parent="PaintingSounds" unique_id=34698785]
 stream = ExtResource("46_xginj")
 volume_db = 15.0
 bus = &"PaintSFX"
 
-[node name="Drop" type="AudioStreamPlayer" parent="PaintingSounds"]
+[node name="Drop" type="AudioStreamPlayer" parent="PaintingSounds" unique_id=50271932]
 stream = ExtResource("47_o2l5o")
 volume_db = 20.0
 bus = &"PaintSFX"
 
-[node name="RacingSounds" type="Node2D" parent="."]
+[node name="RacingSounds" type="Node2D" parent="." unique_id=566067178]
 script = ExtResource("48_ddcwe")
 
-[node name="Checkpoint" type="AudioStreamPlayer" parent="RacingSounds"]
+[node name="Checkpoint" type="AudioStreamPlayer" parent="RacingSounds" unique_id=798714105]
 stream = ExtResource("49_p0x5b")
 volume_db = -5.0
 bus = &"RaceSFX"
 
-[node name="Finish" type="AudioStreamPlayer" parent="RacingSounds"]
+[node name="Finish" type="AudioStreamPlayer" parent="RacingSounds" unique_id=1612210365]
 stream = ExtResource("50_b3hrv")
 volume_db = -3.0
 bus = &"RaceSFX"
 
-[node name="SwitchSceneSFX" type="Node2D" parent="."]
+[node name="SwitchSceneSFX" type="Node2D" parent="." unique_id=1385352253]
 script = ExtResource("51_gbof7")
 
-[node name="Next" type="AudioStreamPlayer" parent="SwitchSceneSFX"]
+[node name="Next" type="AudioStreamPlayer" parent="SwitchSceneSFX" unique_id=914701895]
 stream = ExtResource("52_45ch7")
 bus = &"PaintSFX"
 
-[node name="Back" type="AudioStreamPlayer" parent="SwitchSceneSFX"]
+[node name="Back" type="AudioStreamPlayer" parent="SwitchSceneSFX" unique_id=186339593]
 stream = ExtResource("53_4aslk")
 bus = &"PaintSFX"
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1957070222]
 stream = SubResource("AudioStreamInteractive_idfxx")
 script = ExtResource("56_g8cqi")
 
