@@ -13,7 +13,7 @@ func start_game():
 
 func _on_start_btn_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.is_pressed():
-		start_game() # Replace with function body.
+		start_game()
 
 func on_mode_change(mode: Store.GameMode):
 	visible = mode == Store.GameMode.TITLE

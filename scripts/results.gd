@@ -13,6 +13,6 @@ func on_screen_change(mode: Store.GameMode):
 	visible = mode == Store.GameMode.RESULTS
 	if visible:
 		time.text = ChronoDisplay.format_time(GameStore.chrono_time)
-		var has_next_level := GameStore.level_idx + 1 < GameStore.total_levels
+		var has_next_level := !GameStore.all_level_played()
 		nextLevelBtn.visible = has_next_level
 		endBtn.visible = !has_next_level

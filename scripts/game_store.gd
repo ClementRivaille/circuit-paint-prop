@@ -190,16 +190,24 @@ func reset_chrono_time():
 ### Levels
 
 var level_idx := -1
+var played_levels: Array[int] = []
 var total_levels := 0: set = init_total_levels
 func init_total_levels(total: int): total_levels = total
 var current_level: Level
 
 func next_level():
-	level_idx = (level_idx + 1) % total_levels
+	level_idx = randi() % total_levels
+	while played_levels.has(level_idx) && !all_level_played():
+		level_idx = randi() % total_levels
+	played_levels.append(level_idx)
 	update_level_idx.emit(level_idx)
+
+func all_level_played() -> bool:
+	return played_levels.size() >= total_levels
 
 func end_game():
 	level_idx = -1
+	played_levels.clear()
 	change_mode(GameMode.TITLE)
 
 func load_level(level: Level):
