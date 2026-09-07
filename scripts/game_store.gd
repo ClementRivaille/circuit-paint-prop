@@ -196,7 +196,7 @@ func init_total_levels(total: int): total_levels = total
 var current_level: Level
 
 func next_level():
-	level_idx = randi() % total_levels
+	level_idx = 0
 	while played_levels.has(level_idx) && !all_level_played():
 		level_idx = randi() % total_levels
 	played_levels.append(level_idx)
