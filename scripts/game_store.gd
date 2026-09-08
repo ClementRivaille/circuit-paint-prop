@@ -207,7 +207,7 @@ func all_level_played() -> bool:
 
 func end_game():
 	level_idx = -1
-	played_levels.clear()
+	played_levels = [0]
 	change_mode(GameMode.TITLE)
 
 func load_level(level: Level):
@@ -221,3 +221,10 @@ func get_palette_color(tile: Vector2i):
 	var atlas: TileSetAtlasSource = tilemap.tile_set.get_source(palette)
 	var image := atlas.texture.get_image()
 	return image.get_pixelv(tile)
+
+## Save
+
+func load_save(save: GameSave) -> void:
+	played_levels = save.played_levels
+	if save.tutorial_completed and not played_levels.has(0):
+		played_levels.append(0)

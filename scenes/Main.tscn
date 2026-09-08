@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://ch4xpxmuowrex" path="res://assets/sfx/grab.wav" id="46_xginj"]
 [ext_resource type="AudioStream" uid="uid://db7aoct3vrgnl" path="res://assets/sfx/drop.wav" id="47_o2l5o"]
 [ext_resource type="Script" uid="uid://cbbg2xl2tlal5" path="res://scripts/racing_sounds.gd" id="48_ddcwe"]
+[ext_resource type="Script" uid="uid://ex17ihrxdnis" path="res://scripts/save_manager.gd" id="49_oa6sj"]
 [ext_resource type="AudioStream" uid="uid://cxif4vgu67sdt" path="res://assets/sfx/checkpoint.wav" id="49_p0x5b"]
 [ext_resource type="AudioStream" uid="uid://13i3to1vmti8" path="res://assets/sfx/victory.wav" id="50_b3hrv"]
 [ext_resource type="Script" uid="uid://c3d8tsey5runb" path="res://scripts/switch_scene_sfx.gd" id="51_gbof7"]
@@ -375,6 +376,10 @@ bus = &"PaintSFX"
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1957070222]
 stream = SubResource("AudioStreamInteractive_idfxx")
 script = ExtResource("56_g8cqi")
+
+[node name="SaveManager" type="Node" parent="." unique_id=1505921854]
+script = ExtResource("49_oa6sj")
+metadata/_custom_type_script = "uid://ex17ihrxdnis"
 
 [connection signal="mouse_entered" from="Canva" to="StaticUI/CursorManager" method="enter_canva"]
 [connection signal="mouse_exited" from="Canva" to="StaticUI/CursorManager" method="exit_canva"]
