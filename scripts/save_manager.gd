@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name SaveManager
 
@@ -5,7 +6,12 @@ var SAVE_LOCATION := "user://savegame.save"
 
 var current_save: GameSave
 
+@export_tool_button("Clear save") var clear_save_action = clear_save
+
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	var has_save := read_save()
 	if has_save:
 		GameStore.load_save(current_save)
@@ -49,3 +55,8 @@ func on_change_mode(mode: GameStore.GameMode):
 			current_save.played_levels.clear()
 
 		save()
+
+func clear_save():
+	if not FileAccess.file_exists(SAVE_LOCATION):
+		return
+	DirAccess.remove_absolute(SAVE_LOCATION)
