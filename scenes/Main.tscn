@@ -28,8 +28,14 @@
 [ext_resource type="Script" uid="uid://dlm3p5vrgnqeb" path="res://scripts/chrono_display.gd" id="31_s3r12"]
 [ext_resource type="PackedScene" uid="uid://6eomamaydfsf" path="res://scenes/title_screen.tscn" id="32_i6gei"]
 [ext_resource type="FontFile" uid="uid://0ed43i1xjnl0" path="res://assets/fonts/VAX810MONO.ttf" id="32_j30o2"]
+[ext_resource type="Resource" uid="uid://dj64a1qjakk14" path="res://levels/level_6.tres" id="32_knagv"]
+[ext_resource type="Resource" uid="uid://d3ghvjlgb70eq" path="res://levels/level_7.tres" id="33_siyqs"]
+[ext_resource type="Resource" uid="uid://b2ik2e4cbsxev" path="res://levels/level_8.tres" id="34_pb578"]
 [ext_resource type="Script" uid="uid://brwb3mbs4uux" path="res://scripts/levels_selection.gd" id="35_bl3x2"]
+[ext_resource type="Resource" uid="uid://ekm6m3idjqyx" path="res://levels/level_9.tres" id="35_vshs7"]
+[ext_resource type="Resource" uid="uid://xrx53s6p3hwx" path="res://levels/level_10.tres" id="36_2ki8c"]
 [ext_resource type="Script" uid="uid://dl13mslfd8gwq" path="res://scripts/level.gd" id="36_evuqn"]
+[ext_resource type="Resource" uid="uid://dpj0by1mbmfdv" path="res://levels/level_11.tres" id="37_0owt5"]
 [ext_resource type="Resource" uid="uid://cvn7sb3r4kkjg" path="res://levels/level_1.tres" id="37_e4ogq"]
 [ext_resource type="Resource" uid="uid://b11dqulq4qtxc" path="res://levels/level_2.tres" id="40_76np2"]
 [ext_resource type="AudioStream" uid="uid://dt4dbglhs4jy6" path="res://assets/sfx/brush.ogg" id="43_j64u1"]
@@ -325,7 +331,7 @@ script = ExtResource("30_4lnnx")
 
 [node name="LevelsSelection" type="Node2D" parent="." unique_id=327227213]
 script = ExtResource("35_bl3x2")
-levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("28_h3q5v"), ExtResource("29_6jfpj"), ExtResource("30_0jcsa")])
+levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("28_h3q5v"), ExtResource("29_6jfpj"), ExtResource("30_0jcsa"), ExtResource("32_knagv"), ExtResource("33_siyqs"), ExtResource("34_pb578"), ExtResource("35_vshs7"), ExtResource("36_2ki8c"), ExtResource("37_0owt5")])
 
 [node name="Results" parent="." unique_id=495977069 instance=ExtResource("28_dkdwj")]
 

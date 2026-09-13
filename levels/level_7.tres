@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://d3ghvjlgb70eq"]
+
+[ext_resource type="PackedScene" uid="uid://dbo00fbr3qffm" path="res://levels/level7_map.scn" id="1_dknnk"]
+[ext_resource type="Script" uid="uid://dl13mslfd8gwq" path="res://scripts/level.gd" id="2_ntcjd"]
+
+[resource]
+script = ExtResource("2_ntcjd")
+prompt = "A childhood memory"
+nb_checkpoints = 4
+locked_start = true
+start_position = Vector2i(-50, -45)
+locked_goal = true
+goal_position = Vector2i(35, -15)
+map = ExtResource("1_dknnk")
+palette_id = 4

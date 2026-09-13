@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://b2ik2e4cbsxev"]
+
+[ext_resource type="PackedScene" uid="uid://dtbiu8gpoqtip" path="res://levels/level8_map.scn" id="1_41kdy"]
+[ext_resource type="Script" uid="uid://dl13mslfd8gwq" path="res://scripts/level.gd" id="2_lec2a"]
+
+[resource]
+script = ExtResource("2_lec2a")
+prompt = "An amusement park"
+nb_checkpoints = 5
+checkpoints_positions = Array[Vector2i]([Vector2i(-95, -95), Vector2i(-95, 95), Vector2i(95, 95)])
+map = ExtResource("1_41kdy")
+palette_id = 4

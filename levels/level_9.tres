@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://ekm6m3idjqyx"]
+
+[ext_resource type="PackedScene" uid="uid://ccbd0rbar86iu" path="res://levels/level9_map.scn" id="1_frs07"]
+[ext_resource type="Script" uid="uid://dl13mslfd8gwq" path="res://scripts/level.gd" id="2_j55r7"]
+
+[resource]
+script = ExtResource("2_j55r7")
+prompt = "A tasty meal"
+nb_checkpoints = 4
+checkpoints_positions = Array[Vector2i]([Vector2i(-2, -40), Vector2i(2, 40)])
+fill = Vector2i(2, 0)
+map = ExtResource("1_frs07")
+palette_id = 4
