@@ -8,6 +8,6 @@ script = ExtResource("2_juci4")
 prompt = "A movie you like"
 locked_goal = true
 checkpoints_positions = Array[Vector2i]([Vector2i(70, 65), Vector2i(-70, -40)])
-fill = Vector2i(0, 0)
+fill = Vector2i(1, 1)
 map = ExtResource("1_hqc0f")
 palette_id = 5

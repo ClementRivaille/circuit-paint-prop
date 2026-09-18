@@ -7,6 +7,7 @@
 script = ExtResource("2_lec2a")
 prompt = "An amusement park"
 nb_checkpoints = 5
-checkpoints_positions = Array[Vector2i]([Vector2i(-95, -95), Vector2i(-95, 95), Vector2i(95, 95)])
+checkpoints_positions = Array[Vector2i]([Vector2i(-93, -93), Vector2i(-90, 90), Vector2i(90, 90)])
+fill = Vector2i(2, 0)
 map = ExtResource("1_41kdy")
 palette_id = 7
