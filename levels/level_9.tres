@@ -10,4 +10,4 @@ nb_checkpoints = 4
 checkpoints_positions = Array[Vector2i]([Vector2i(-2, -40), Vector2i(2, 40)])
 fill = Vector2i(2, 0)
 map = ExtResource("1_frs07")
-palette_id = 4
+palette_id = 8

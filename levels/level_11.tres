@@ -12,4 +12,4 @@ start_position = Vector2i(-72, 70)
 checkpoints_positions = Array[Vector2i]([Vector2i(35, -56), Vector2i(-53, -41)])
 fill = Vector2i(2, 0)
 map = ExtResource("1_41jjp")
-palette_id = 4
+palette_id = 10

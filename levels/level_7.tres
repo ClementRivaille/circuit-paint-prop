@@ -12,4 +12,4 @@ start_position = Vector2i(-50, -45)
 locked_goal = true
 goal_position = Vector2i(35, -15)
 map = ExtResource("1_dknnk")
-palette_id = 4
+palette_id = 6

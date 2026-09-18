@@ -9,4 +9,4 @@ prompt = "An amusement park"
 nb_checkpoints = 5
 checkpoints_positions = Array[Vector2i]([Vector2i(-95, -95), Vector2i(-95, 95), Vector2i(95, 95)])
 map = ExtResource("1_41kdy")
-palette_id = 4
+palette_id = 7
