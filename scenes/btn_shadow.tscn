@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://0sry4lytaeg2"]
+
+[ext_resource type="Texture2D" uid="uid://g83hx7kow84y" path="res://assets/sprites/ui/button_flat.png" id="1_a7vjn"]
+[ext_resource type="Script" uid="uid://ep35h1w2gsyi" path="res://scripts/btn_shadow.gd" id="2_83xgi"]
+
+[node name="BtnShadow" type="NinePatchRect" unique_id=227107906]
+modulate = Color(0, 0, 0, 0.24313726)
+show_behind_parent = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a7vjn")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("2_83xgi")

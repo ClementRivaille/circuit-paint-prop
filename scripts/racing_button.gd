@@ -2,11 +2,17 @@ extends SwitchButton
 class_name RacingButton
 
 @export var disable_color: Color
-@onready var instructions: Label = $Instructions
+@export var instructions_path: NodePath
+
+@onready var shadow: ButtonShadow = $BtnShadow
+
+var instructions: Label
 
 var enabled := false
 
 func _ready() -> void:
+	instructions = get_node(instructions_path)
+
 	to_mode = Store.GameMode.RACING
 	GameStore.start_validated.connect(on_validation)
 	GameStore.goal_validated.connect(on_validation)
@@ -23,6 +29,7 @@ func enable(value: bool):
 	enabled = value
 	modulate = Color.WHITE if enabled else disable_color
 	instructions.visible = value
+	shadow.enabled = value
 
 func on_validation(valid: bool):
 	enable(valid && GameStore.are_item_placed())

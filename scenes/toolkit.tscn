@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://ckop7mbojcgkk" path="res://assets/fonts/PIXELADE.TTF" id="11_6dt1e"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="12_2ex8i"]
 [ext_resource type="PackedScene" uid="uid://dmv1hj1il3acw" path="res://scenes/brush_picker.tscn" id="13_didrs"]
+[ext_resource type="PackedScene" uid="uid://0sry4lytaeg2" path="res://scenes/btn_shadow.tscn" id="13_e46k2"]
 [ext_resource type="Texture2D" uid="uid://sk1icvbctvwm" path="res://assets/sprites/ui/circle-md.png" id="14_sn2fg"]
 [ext_resource type="Texture2D" uid="uid://dnt7va0c5se38" path="res://assets/sprites/ui/circle-lg.png" id="15_uvfsa"]
 
@@ -99,6 +100,7 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 script = ExtResource("10_6f3fm")
 disable_color = Color(0.418536, 0.418536, 0.418536, 0.298039)
+instructions_path = NodePath("../Instructions")
 
 [node name="Label" type="Label" parent="RaceButton" unique_id=288272026]
 layout_mode = 1
@@ -120,17 +122,21 @@ offset_bottom = 1.0
 texture = ExtResource("12_2ex8i")
 stretch_mode = 3
 
-[node name="Instructions" type="Label" parent="RaceButton" unique_id=1162082639]
+[node name="BtnShadow" parent="RaceButton" unique_id=227107906 instance=ExtResource("13_e46k2")]
+layout_mode = 1
+anchors_preset = 15
+
+[node name="Instructions" type="Label" parent="." unique_id=1162082639]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.484
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0182
-offset_top = 1.12
-offset_right = 48.725
-offset_bottom = 16.12
+offset_left = 103.399994
+offset_top = -19.0
+offset_right = 202.14319
+offset_bottom = -4.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 0.501961)
 theme_override_constants/line_spacing = -3

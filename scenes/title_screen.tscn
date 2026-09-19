@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bqjda8m410iv5" path="res://assets/fonts/uni05_53.ttf" id="5_wfyug"]
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="6_ep788"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="7_k6bys"]
+[ext_resource type="PackedScene" uid="uid://0sry4lytaeg2" path="res://scenes/btn_shadow.tscn" id="7_u26n3"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="9_o2knb"]
 
 [node name="TitleScreen" type="Control" unique_id=1839681264]
@@ -108,6 +109,12 @@ theme_override_font_sizes/font_size = 26
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BtnShadow" parent="StartBtn" unique_id=227107906 instance=ExtResource("7_u26n3")]
+layout_mode = 1
+anchors_preset = 15
+x_offset = 0
+y_offset = 2
 
 [node name="Label" type="Label" parent="." unique_id=1496377838]
 layout_mode = 1
