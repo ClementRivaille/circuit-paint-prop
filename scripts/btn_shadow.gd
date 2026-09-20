@@ -22,7 +22,7 @@ func _ready() -> void:
 	_parent.mouse_exited.connect(on_exit)
 
 	set_offset(SIDE_BOTTOM, y_offset)
-	#set_offset(SIDE_RIGHT, x_offset)
+	set_offset(SIDE_RIGHT, x_offset)
 	visible = false
 
 func on_hover() -> void:

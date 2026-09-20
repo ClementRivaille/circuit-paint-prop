@@ -11,9 +11,17 @@ func start_game():
 	GameStore.next_level()
 	GameStore.change_mode(Store.GameMode.PAINTING)
 
+func start_randomized():
+	GameStore.start_random()
+	GameStore.change_mode(Store.GameMode.PAINTING)
+
 func _on_start_btn_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.is_pressed():
 		start_game()
+
+func _on_random_btn_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.is_pressed():
+		start_randomized()
 
 func on_mode_change(mode: Store.GameMode):
 	visible = mode == Store.GameMode.TITLE

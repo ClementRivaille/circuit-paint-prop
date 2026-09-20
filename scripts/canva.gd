@@ -51,9 +51,12 @@ func init_level(level: Level):
 	clear()
 
 	# draw level canva
-	var template: TileMapLayer = level.map.instantiate()
-	level_canva.tile_map_data = template.tile_map_data
-	template.queue_free()
+	if GameStore.randomized:
+		level_canva.clear()
+	else:
+		var template: TileMapLayer = level.map.instantiate()
+		level_canva.tile_map_data = template.tile_map_data
+		template.queue_free()
 
 	var width := GameStore.CANVA_DIMENSIONS.x / 2
 	var height := GameStore.CANVA_DIMENSIONS.y / 2

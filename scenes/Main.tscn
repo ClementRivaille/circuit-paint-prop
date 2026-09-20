@@ -332,6 +332,7 @@ script = ExtResource("30_4lnnx")
 [node name="LevelsSelection" type="Node2D" parent="." unique_id=327227213]
 script = ExtResource("35_bl3x2")
 levels = Array[ExtResource("36_evuqn")]([ExtResource("37_e4ogq"), ExtResource("40_76np2"), ExtResource("28_h3q5v"), ExtResource("29_6jfpj"), ExtResource("30_0jcsa"), ExtResource("32_knagv"), ExtResource("33_siyqs"), ExtResource("34_pb578"), ExtResource("35_vshs7"), ExtResource("36_2ki8c"), ExtResource("37_0owt5")])
+free_prompts = Array[String](["A spaceship", "Your favorite game", "A goregeous landscape", "A marketable character", "A movie you like", "A childhood memory", "An amusement park", "A tasty meal", "A frightening monster", "Your dream house", "A dream you had", "A set of flowers", "A comfy room", "The spirit of adventure", "A concert", "A friendly face", "Your worst fear", "A simple puzzle", "Where you live", "An action scene", "A cute animal", "An inspiring character", "A cave", "A mysterious land", "A boat", "Vertigo", "Something funny", "A beautiful sky", "A book you remember", "A group of bugs"])
 
 [node name="Results" parent="." unique_id=495977069 instance=ExtResource("28_dkdwj")]
 

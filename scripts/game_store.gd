@@ -22,6 +22,7 @@ signal update_level_idx(idx: int)
 signal level_begin(level: Level)
 signal mode_transision(from: GameMode, to: GameMode)
 signal end_transition
+signal load_random_level
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS, TITLE }
@@ -194,8 +195,13 @@ var played_levels: Array[int] = []
 var total_levels := 0: set = init_total_levels
 func init_total_levels(total: int): total_levels = total
 var current_level: Level
+var randomized := false
 
 func next_level():
+	if randomized:
+		load_random_level.emit()
+		return
+
 	level_idx = 0
 	while played_levels.has(level_idx) && !all_level_played():
 		level_idx = randi() % total_levels
@@ -203,7 +209,7 @@ func next_level():
 	update_level_idx.emit(level_idx)
 
 func all_level_played() -> bool:
-	return played_levels.size() >= total_levels
+	return played_levels.size() >= total_levels && !randomized
 
 func end_game():
 	level_idx = -1
@@ -221,6 +227,10 @@ func get_palette_color(tile: Vector2i):
 	var atlas: TileSetAtlasSource = tilemap.tile_set.get_source(palette)
 	var image := atlas.texture.get_image()
 	return image.get_pixelv(tile)
+
+func start_random():
+	randomized = true
+	load_random_level.emit()
 
 ## Save
 
