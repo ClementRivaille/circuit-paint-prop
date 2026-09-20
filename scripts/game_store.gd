@@ -23,6 +23,7 @@ signal level_begin(level: Level)
 signal mode_transision(from: GameMode, to: GameMode)
 signal end_transition
 signal load_random_level
+signal save_loaded(save: GameSave)
 
 enum TrackItemType { START, CHECKPOINT, GOAL }
 enum GameMode { PAINTING, RACING, RESULTS, TITLE }
@@ -238,3 +239,4 @@ func load_save(save: GameSave) -> void:
 	played_levels = save.played_levels
 	if save.tutorial_completed and not played_levels.has(0):
 		played_levels.append(0)
+	save_loaded.emit(save)

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ciu51j4l16f3b" path="res://assets/sprites/icons/paint.png" id="6_ep788"]
 [ext_resource type="Texture2D" uid="uid://7727f07mvvj5" path="res://assets/sprites/icons/flag.png" id="7_k6bys"]
 [ext_resource type="PackedScene" uid="uid://0sry4lytaeg2" path="res://scenes/btn_shadow.tscn" id="7_u26n3"]
+[ext_resource type="Texture2D" uid="uid://gmbue6i1pjfs" path="res://assets/sprites/stool.png" id="8_ib7db"]
 [ext_resource type="FontFile" uid="uid://bdurl2l3gviel" path="res://assets/fonts/Born2bSportyV2.ttf" id="9_o2knb"]
 
 [node name="TitleScreen" type="Control" unique_id=1839681264]
@@ -78,7 +79,6 @@ loop_duration = 0.3
 metadata/_edit_use_anchors_ = true
 
 [node name="StartBtn" type="NinePatchRect" parent="." unique_id=1938687647]
-visible = false
 self_modulate = Color(0.8, 0.231373, 0.231373, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -116,15 +116,20 @@ layout_mode = 1
 anchors_preset = 15
 
 [node name="StartRandom" type="NinePatchRect" parent="." unique_id=1005054328]
-self_modulate = Color(0.8, 0.231373, 0.231373, 1)
+self_modulate = Color(0.26968876, 0.37572473, 0.6118008, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
-anchor_top = 0.803571
+anchor_top = 0.80357105
 anchor_right = 0.6
 anchor_bottom = 0.933036
+offset_left = 90.0
+offset_top = 9.1552734e-05
+offset_right = 38.999985
+offset_bottom = -7.6293945e-05
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0067858, 1)
 mouse_filter = 1
 texture = ExtResource("3_aih8h")
 patch_margin_left = 5
@@ -134,23 +139,38 @@ patch_margin_bottom = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="StartRandom" unique_id=972583026]
+visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9937332, 1.0046517)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
 theme_override_constants/shadow_offset_x = 0
 theme_override_fonts/font = ExtResource("4_e4t6v")
-theme_override_font_sizes/font_size = 18
-text = "Free mode"
+theme_override_font_sizes/font_size = 13
+text = "White
+canva"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BtnShadow" parent="StartRandom" unique_id=2105743687 instance=ExtResource("7_u26n3")]
 layout_mode = 1
 anchors_preset = 15
+
+[node name="TextureRect" type="TextureRect" parent="StartRandom" unique_id=520039701]
+custom_maximum_size = Vector2(12, 18)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ib7db")
+stretch_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=1496377838]
 layout_mode = 1
