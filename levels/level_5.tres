@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_yf0rp")
-prompt = "A marketable character"
+prompt = "A famous mascot"
 nb_checkpoints = 4
 locked_start = true
 checkpoints_positions = Array[Vector2i]([Vector2i(-58, -83), Vector2i(50, 80)])
